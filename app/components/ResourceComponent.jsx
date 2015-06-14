@@ -35,7 +35,7 @@ export default class ResourceComponent extends React.Component {
         return (
             <tr>
                 <td>{this.resource.name}</td>
-                <td>{this.resource.count}</td>
+                <td>{this.resource.count.toFixed(1)}</td>
                 <td>
                     <button type="button" onClick={this._gather}>Chop</button>
                     <button type="button" onClick={this._sell} disabled={resource.count <= 0}>Sell</button>

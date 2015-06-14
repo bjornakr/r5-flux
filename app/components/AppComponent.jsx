@@ -2,6 +2,7 @@ import React from 'react';
 import PersonalBelongings from './PersonalBelongingsComponent.jsx';
 import Resources from './ResourcesComponent.jsx';
 import Store from './StoreComponent.jsx';
+import Workers from './WorkersComponent.jsx';
 
 export default class AppComponent extends React.Component {
 
@@ -26,6 +27,7 @@ export default class AppComponent extends React.Component {
                 <PersonalBelongings styles = {styles} />
                 <Resources styles = {styles} />
                 <Store styles = {styles} />
+                <Workers styles = {styles} />
             </div>
         );
     }
