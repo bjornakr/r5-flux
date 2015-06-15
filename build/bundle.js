@@ -20706,8 +20706,8 @@
 
 	var ChangeEvent = Symbol();
 
-	var personalBelongings = [{ name: 'Dårlig øks', price: 9.9, level: 1, type: _constantsResourceConstantsJs2['default'].Madera }];
-	var storeItems = [{ name: 'Megaøks', price: 99.9, level: 5, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Hyperøks', price: 499.9, level: 15, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Schizzøks', price: 9999.9, level: 40, type: _constantsResourceConstantsJs2['default'].Madera }];
+	var personalBelongings = [{ name: 'Dårlig øks', price: 9.9, level: 1, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Toothpick', price: 0.5, level: 0.1, type: _constantsResourceConstantsJs2['default'].Stone }];
+	var storeItems = [{ name: 'Kjøttøks', price: 9.99, level: 5, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Megaøks', price: 99.9, level: 5, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Hyperøks', price: 499.9, level: 15, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Schizzøks', price: 9999.9, level: 40, type: _constantsResourceConstantsJs2['default'].Madera }];
 
 	var _ItemStore = (function (_EventEmitter) {
 	    function _ItemStore() {
@@ -21175,7 +21175,8 @@
 	    BuyItem: Symbol(),
 	    HireWorker: Symbol(),
 	    Dinero: Symbol("Dinero"),
-	    Madera: Symbol("Madera")
+	    Madera: Symbol("Madera"),
+	    Stone: Symbol("Stone")
 	};
 	module.exports = exports["default"];
 
@@ -21190,8 +21191,6 @@
 	});
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -21230,28 +21229,33 @@
 	var _node_modulesReactAddons = __webpack_require__(173);
 
 	var ResourcesComponent = (function (_React$Component) {
-	    function ResourcesComponent(props) {
+	    function ResourcesComponent() {
 	        _classCallCheck(this, ResourcesComponent);
 
-	        _get(Object.getPrototypeOf(ResourcesComponent.prototype), 'constructor', this).call(this, props);
-	        this.state = { canSellMadera: false };
-	        this._onChange = this._onChange.bind(this);
+	        if (_React$Component != null) {
+	            _React$Component.apply(this, arguments);
+	        }
 	    }
 
 	    _inherits(ResourcesComponent, _React$Component);
 
 	    _createClass(ResourcesComponent, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            _storesResourceStoreJs2['default'].addChangeListener(this._onChange);
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            _storesResourceStoreJs2['default'].removeChangeListener(this._onChange);
-	        }
-	    }, {
 	        key: 'render',
+
+	        //constructor(props) {
+	        //    super(props);
+	        //    this.state = {canSellMadera: false}
+	        //    this._onChange = this._onChange.bind(this);
+	        //}
+
+	        //componentDidMount() {
+	        //    ResourceStore.addChangeListener(this._onChange);
+	        //}
+	        //
+	        //componentWillUnmount() {
+	        //    ResourceStore.removeChangeListener(this._onChange);
+	        //}
+
 	        value: function render() {
 	            var fieldSetStyle = {}; //{background: "#D7E1E5"};
 	            (0, _objectAssign2['default'])(fieldSetStyle, this.props.styles.fieldSetStyle);
@@ -21277,19 +21281,26 @@
 	                        null,
 	                        _react2['default'].createElement(_ResourceComponentJsx2['default'], { type: _constantsResourceConstantsJs2['default'].Madera }),
 	                        _react2['default'].createElement('br', null)
+	                    ),
+	                    _react2['default'].createElement(
+	                        'tr',
+	                        null,
+	                        _react2['default'].createElement(_ResourceComponentJsx2['default'], { type: _constantsResourceConstantsJs2['default'].Stone }),
+	                        _react2['default'].createElement('br', null)
 	                    )
 	                )
 	            );
 	        }
-	    }, {
-	        key: '_onChange',
-	        value: function _onChange() {
-	            if (_storesResourceStoreJs2['default'].getResource(_constantsResourceConstantsJs2['default'].Madera) > 0 && !this.state.canSellMadera) {
-	                this.setState({ canSellMadera: true });
-	            } else if (_storesResourceStoreJs2['default'].getResource(_constantsResourceConstantsJs2['default'].Madera) <= 0 && this.state.canSellMadera) {
-	                this.setState({ canSellMadera: false });
-	            }
-	        }
+
+	        //_onChange() {
+	        //if (ResourceStore.getResource(Constants.Madera) > 0 && !this.state.canSellMadera) {
+	        //    this.setState(ResourceStore.getState());
+	        //}
+	        //else if (ResourceStore.getResource(Constants.Madera) <= 0 && this.state.canSellMadera) {
+	        //    this.setState({canSellMadera: false});
+	        //}
+	        //}
+
 	    }]);
 
 	    return ResourcesComponent;
@@ -21391,7 +21402,7 @@
 	                    _react2['default'].createElement(
 	                        'button',
 	                        { type: 'button', onClick: this._gather },
-	                        'Chop'
+	                        this.resource.gatherVerb
 	                    ),
 	                    _react2['default'].createElement(
 	                        'button',
@@ -21410,12 +21421,12 @@
 	    }, {
 	        key: '_sell',
 	        value: function _sell() {
-	            _actionsResourceActionsJs2['default'].sellMadera();
+	            _actionsResourceActionsJs2['default'].sell(this.props.type);
 	        }
 	    }, {
 	        key: '_onChange',
 	        value: function _onChange() {
-	            this.forceUpdate();
+	            this.setState(_storesResourceStoreJs2['default'].getState());
 	        }
 	    }]);
 
@@ -21429,7 +21440,7 @@
 /* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
 	    value: true
@@ -21437,7 +21448,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _resources;
+	var _resources, _workers;
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -21461,9 +21472,9 @@
 
 	var _actionsItemActionsJs2 = _interopRequireDefault(_actionsItemActionsJs);
 
-	var resources = (_resources = {}, _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Dinero, { name: 'Dinero', count: 40 }), _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Madera, { name: 'Madera', count: 0 }), _resources);
+	var resources = (_resources = {}, _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Dinero, { name: 'Dinero', count: 40, sellPrice: 1 }), _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Madera, { name: 'Madera', count: 0, sellPrice: 1, gatherVerb: 'Chop' }), _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Stone, { name: 'Stone', count: 0, sellPrice: 1.5, gatherVerb: 'Pick' }), _resources);
 
-	var workers = _defineProperty({}, _constantsResourceConstantsJs2['default'].Madera, { name: 'Lumberjack', price: 50, hiredCount: 0 });
+	var workers = (_workers = {}, _defineProperty(_workers, _constantsResourceConstantsJs2['default'].Madera, { name: 'Lumberjack', price: 50, hiredCount: 0 }), _defineProperty(_workers, _constantsResourceConstantsJs2['default'].Stone, { name: 'Mason', price: 100, hiredCount: 0 }), _workers);
 
 	var ChangeEvent = Symbol();
 	var WorkerEvent = Symbol();
@@ -21553,7 +21564,9 @@
 
 	var produce = function produce() {
 	    setInterval(function () {
-	        resources[_constantsResourceConstantsJs2['default'].Madera].count += 0.1 * workers[_constantsResourceConstantsJs2['default'].Madera].hiredCount;
+	        _.each([_constantsResourceConstantsJs2['default'].Madera, _constantsResourceConstantsJs2['default'].Stone], function (resource) {
+	            resources[resource].count += 0.1 * workers[resource].hiredCount;
+	        });
 	        ResourceStore.emitChange();
 	    }, 100);
 	};
@@ -21561,6 +21574,9 @@
 	produce();
 
 	var factor = function factor(resourceCount) {
+	    if (resourceCount < 1) {
+	        return resourceCount;
+	    }
 	    if (resourceCount >= 10) {
 	        return 10 * factor(resourceCount / 10);
 	    } else {
@@ -21598,6 +21614,14 @@
 	    return false;
 	};
 
+	var sellResource = function sellResource(resourceType) {
+	    var resource = resources[resourceType];
+	    var resourceCount = resource.count;
+	    var sellAmount = factor(resourceCount);
+	    resources[resourceType].count -= sellAmount;
+	    resources[_constantsResourceConstantsJs2['default'].Dinero].count += resources[resourceType].sellPrice * sellAmount;
+	};
+
 	_DispatcherJs2['default'].register(function (payload) {
 	    var isValidAction = true;
 	    var isMoneyTransaction = false;
@@ -21608,10 +21632,7 @@
 	            console.log('STORE: Add resource (' + resources[payload.type] + ')');
 	            break;
 	        case _constantsResourceConstantsJs2['default'].SellResource:
-	            var resourceCount = resources[payload.type].count;
-	            console.log(factor(resourceCount));
-	            resources[payload.type].count -= factor(resourceCount);
-	            resources[_constantsResourceConstantsJs2['default'].Dinero].count += 2 * factor(resourceCount);
+	            sellResource(payload.type);
 	            isMoneyTransaction = true;
 	            break;
 	        case _constantsResourceConstantsJs2['default'].BuyItem:
@@ -21638,6 +21659,7 @@
 	    }
 	});
 	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(195)))
 
 /***/ },
 /* 170 */
@@ -21701,13 +21723,17 @@
 	        _DispatcherJs2['default'].dispatch({ action: _constantsResourceConstantsJs2['default'].AddResource, type: type, tool: tool });
 	    },
 
-	    chopMadera: function chopMadera() {
-	        addResource(_constantsResourceConstantsJs2['default'].Madera);
+	    sell: function sell(resource) {
+	        _DispatcherJs2['default'].dispatch({ action: _constantsResourceConstantsJs2['default'].SellResource, type: resource });
 	    },
 
-	    sellMadera: function sellMadera() {
-	        sellResource(_constantsResourceConstantsJs2['default'].Madera);
-	    },
+	    //chopMadera: () => {
+	    //    addResource(Constants.Madera);
+	    //},
+	    //
+	    //sellMadera: () => {
+	    //    sellResource(Constants.Madera);
+	    //},
 
 	    buyItem: function buyItem(item) {
 	        console.log('ACTION: BUY ITEM');
@@ -24173,7 +24199,8 @@
 	                _react2['default'].createElement(
 	                    'table',
 	                    null,
-	                    _react2['default'].createElement(_WorkerComponentJsx2['default'], { name: 'Lumberjack', price: 50, resource: _constantsResourceConstantsJs2['default'].Madera })
+	                    _react2['default'].createElement(_WorkerComponentJsx2['default'], { resource: _constantsResourceConstantsJs2['default'].Madera }),
+	                    _react2['default'].createElement(_WorkerComponentJsx2['default'], { resource: _constantsResourceConstantsJs2['default'].Stone })
 	                )
 	            );
 	        }

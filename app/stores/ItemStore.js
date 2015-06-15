@@ -7,9 +7,11 @@ import ResourceConstants from '../constants/ResourceConstants.js';
 let ChangeEvent = Symbol();
 
 let personalBelongings = [
-    { name: "Dårlig øks", price: 9.90, level: 1, type: ResourceConstants.Madera }
+    { name: "Dårlig øks", price: 9.90, level: 1, type: ResourceConstants.Madera },
+    { name: "Toothpick", price: 0.50, level: 0.1, type: ResourceConstants.Stone }
 ];
 let storeItems = [
+    { name: "Kjøttøks", price: 9.99, level: 5, type: ResourceConstants.Madera },
     { name: "Megaøks", price: 99.90, level: 5, type: ResourceConstants.Madera },
     { name: "Hyperøks", price: 499.90, level: 15, type: ResourceConstants.Madera },
     { name: "Schizzøks", price: 9999.90, level: 40, type: ResourceConstants.Madera }

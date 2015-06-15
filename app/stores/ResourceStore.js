@@ -4,12 +4,14 @@ import Constants from './../constants/ResourceConstants.js';
 import ItemActions from './../actions/ItemActions.js';
 
 let resources = {
-    [Constants.Dinero]: {name: "Dinero", count: 40},
-    [Constants.Madera]: {name: "Madera", count: 0}
+    [Constants.Dinero]: {name: "Dinero", count: 40, sellPrice: 1},
+    [Constants.Madera]: {name: "Madera", count: 0, sellPrice: 1, gatherVerb: 'Chop'},
+    [Constants.Stone]: {name: "Stone", count: 0, sellPrice: 1.5, gatherVerb: 'Pick'}
 };
 
 let workers = {
-    [Constants.Madera]: {name: "Lumberjack", price: 50, hiredCount: 0}
+    [Constants.Madera]: {name: "Lumberjack", price: 50, hiredCount: 0},
+    [Constants.Stone]: {name: "Mason", price: 100, hiredCount: 0}
 };
 
 let ChangeEvent = Symbol();
@@ -76,7 +78,9 @@ export default ResourceStore;
 
 var produce = () => {
     setInterval(function() {
-        resources[Constants.Madera].count += 0.1 * workers[Constants.Madera].hiredCount;
+        _.each([Constants.Madera, Constants.Stone], (resource) => {
+            resources[resource].count += 0.1 * workers[resource].hiredCount;
+        });
         ResourceStore.emitChange();
     }, 100);
 };
@@ -84,6 +88,9 @@ var produce = () => {
 produce();
 
 var factor = (resourceCount) => {
+    if (resourceCount < 1) {
+        return resourceCount;
+    }
     if (resourceCount >= 10) {
         return 10 * factor(resourceCount / 10);
     }
@@ -122,6 +129,14 @@ var hireWorker = (resource) => {
     return false;
 };
 
+var sellResource = (resourceType) => {
+    let resource = resources[resourceType];
+    let resourceCount = resource.count;
+    let sellAmount = factor(resourceCount);
+    resources[resourceType].count -= sellAmount;
+    resources[Constants.Dinero].count += resources[resourceType].sellPrice * sellAmount;
+};
+
 Dispatcher.register(function (payload) {
     let isValidAction = true;
     let isMoneyTransaction = false;
@@ -132,10 +147,7 @@ Dispatcher.register(function (payload) {
             console.log("STORE: Add resource (" + resources[payload.type] + ")");
             break;
         case Constants.SellResource:
-            let resourceCount = resources[payload.type].count;
-            console.log(factor(resourceCount));
-            resources[payload.type].count -= factor(resourceCount);
-            resources[Constants.Dinero].count += 2 * factor(resourceCount);
+            sellResource(payload.type);
             isMoneyTransaction = true;
             break;
         case Constants.BuyItem:

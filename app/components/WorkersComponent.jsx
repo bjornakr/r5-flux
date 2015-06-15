@@ -12,7 +12,8 @@ export default class WorkersComponent extends React.Component {
             <fieldset style={fieldSetStyle}>
                 <legend style={this.props.styles.legendStyle}>Workers</legend>
                 <table>
-                    <WorkerComponent name="Lumberjack" price={50} resource={ResourceConstants.Madera} />
+                    <WorkerComponent resource={ResourceConstants.Madera} />
+                    <WorkerComponent resource={ResourceConstants.Stone} />
                 </table>
             </fieldset>
         );

@@ -17,13 +17,17 @@ export default {
         Dispatcher.dispatch({ action: Constants.AddResource, type: type, tool: tool });
     },
 
-    chopMadera: () => {
-        addResource(Constants.Madera);
+    sell: (resource) => {
+        Dispatcher.dispatch({ action: Constants.SellResource, type: resource })
     },
 
-    sellMadera: () => {
-        sellResource(Constants.Madera);
-    },
+    //chopMadera: () => {
+    //    addResource(Constants.Madera);
+    //},
+    //
+    //sellMadera: () => {
+    //    sellResource(Constants.Madera);
+    //},
 
     buyItem: (item) => {
         console.log("ACTION: BUY ITEM");

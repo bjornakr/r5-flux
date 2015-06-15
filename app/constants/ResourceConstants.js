@@ -4,5 +4,6 @@ export default {
     BuyItem: Symbol(),
     HireWorker: Symbol(),
     Dinero: Symbol("Dinero"),
-    Madera: Symbol("Madera")
+    Madera: Symbol("Madera"),
+    Stone: Symbol("Stone"),
 }
