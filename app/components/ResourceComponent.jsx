@@ -6,7 +6,7 @@ import Actions from './../actions/ResourceActions.js';
 export default class ResourceComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.resource = ResourceStore.getResource(this.props.type);
+        this.resource = ResourceStore.getState(this.props.type).resource;
         //this.state = this._getState();
         this._onChange = this._onChange.bind(this);
         this._sell = this._sell.bind(this);

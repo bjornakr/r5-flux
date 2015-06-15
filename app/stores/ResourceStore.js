@@ -4,21 +4,31 @@ import Constants from './../constants/ResourceConstants.js';
 import ItemActions from './../actions/ItemActions.js';
 
 let resources = {
-    [Constants.Dinero]: {name: "Dinero", count: 450},
+    [Constants.Dinero]: {name: "Dinero", count: 1000},
     [Constants.Madera]: {name: "Madera", count: 0}
 };
 
-let hiredWorkers = {
-    [Constants.Madera]: 1
-};
-
-let workerPrices = {
-    [Constants.Madera]: 50
+let workers = {
+    [Constants.Madera]: {name: "Lumberjack", price: 50, hiredCount: 0}
 };
 
 let ChangeEvent = Symbol();
 
 class _ResourceStore extends EventEmitter {
+
+    getState() {
+        return {
+            resources: resources,
+            workers: workers
+        }
+    }
+
+    getState(resource) {
+        return {
+            resource: resources[resource],
+            workers: workers[resource]
+        }
+    }
 
     getResource(type) {
         return resources[type];
@@ -48,7 +58,7 @@ export default ResourceStore;
 
 var produce = () => {
     setInterval(function() {
-        resources[Constants.Madera].count += 0.1 * hiredWorkers[Constants.Madera];
+        resources[Constants.Madera].count += 0.1 * workers[Constants.Madera].hiredCount;
         ResourceStore.emitChange();
     }, 100);
 };
@@ -57,20 +67,40 @@ produce();
 
 var factor = (resourceCount) => {
     if (resourceCount >= 10) {
-        return 10 * factor(resourceCount / 20);
+        return 10 * factor(resourceCount / 10);
     }
     else {
         return 1;
     }
 };
 
+/**
+ * Subtracts money from account.
+ *
+ * @param {number} amount
+ * @returns {boolean} true if account holds sufficient money, and money has been subtracted.
+ */
 var spendMoney = (amount) => {
-    resources[Constants.Dinero].count -= amount;
+    if (amount <= resources[Constants.Dinero].count) {
+        resources[Constants.Dinero].count -= amount;
+        return true;
+    }
+    return false;
 };
 
+/**
+ * Hire a worker for the given resource.
+ *
+ * @returns {boolean} True if worker was successfully hired.
+ * @param {symbol} resource
+ */
 var hireWorker = (resource) => {
-    spendMoney(workerPrices[resource]);
-    hiredWorkers[resource]++;
+    let worker = workers[resource];
+    if (spendMoney(worker.price)) {
+        worker.hiredCount++;
+        return true;
+    }
+    return false;
 };
 
 Dispatcher.register(function (payload) {
@@ -83,8 +113,6 @@ Dispatcher.register(function (payload) {
             break;
         case Constants.SellResource:
             let resourceCount = resources[payload.type].count;
-            let self = this;
-
             console.log(factor(resourceCount));
             resources[payload.type].count -= factor(resourceCount);
             resources[Constants.Dinero].count += 2 * factor(resourceCount);
@@ -95,7 +123,10 @@ Dispatcher.register(function (payload) {
             break;
         case Constants.HireWorker:
             console.log("STORE: HIRE WORKER (" + payload.resource.toString() + ")");
-            hireWorker(payload.resource);
+            if (!hireWorker(payload.resource)) {
+                isValidAction = false;
+            }
+            break;
         default:
             isValidAction = false;
     }
