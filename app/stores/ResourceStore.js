@@ -4,12 +4,12 @@ import Constants from './../constants/ResourceConstants.js';
 import ItemActions from './../actions/ItemActions.js';
 
 let resources = {
-    [Constants.Dinero]: {name: "Dinero", count: 100000},
+    [Constants.Dinero]: {name: "Dinero", count: 40},
     [Constants.Madera]: {name: "Madera", count: 0}
 };
 
 let workers = {
-    [Constants.Madera]: {name: "Lumberjack", price: 50, hiredCount: 999999}
+    [Constants.Madera]: {name: "Lumberjack", price: 50, hiredCount: 0}
 };
 
 let ChangeEvent = Symbol();
@@ -19,15 +19,20 @@ class _ResourceStore extends EventEmitter {
 
     getState() {
         return {
-            resources: deepCopy(resources),
+            resources: resources,
             workers: workers
         }
     }
 
     getState(resource) {
+        let canBuyWorker = false;
+        if (workers[resource]) {
+            canBuyWorker = resources[Constants.Dinero].count >= workers[resource].price;
+        }
         return {
             resource: resources[resource],
-            workers: workers[resource]
+            workers: workers[resource],
+            canBuyWorker: canBuyWorker
         }
     }
 
@@ -96,6 +101,7 @@ var factor = (resourceCount) => {
 var spendMoney = (amount) => {
     if (amount <= resources[Constants.Dinero].count) {
         resources[Constants.Dinero].count -= amount;
+        ResourceStore.emitWorkerChange();
         return true;
     }
     return false;
@@ -118,6 +124,7 @@ var hireWorker = (resource) => {
 
 Dispatcher.register(function (payload) {
     let isValidAction = true;
+    let isMoneyTransaction = false;
 
     switch (payload.action) {
         case Constants.AddResource:
@@ -129,6 +136,7 @@ Dispatcher.register(function (payload) {
             console.log(factor(resourceCount));
             resources[payload.type].count -= factor(resourceCount);
             resources[Constants.Dinero].count += 2 * factor(resourceCount);
+            isMoneyTransaction = true;
             break;
         case Constants.BuyItem:
             resources[Constants.Dinero].count -= payload.item.price;
@@ -140,7 +148,7 @@ Dispatcher.register(function (payload) {
                 isValidAction = false;
             }
             else {
-                ResourceStore.emitWorkerChange();
+                isMoneyTransaction = true;
             }
             break;
         default:
@@ -149,5 +157,8 @@ Dispatcher.register(function (payload) {
 
     if (isValidAction) {
         ResourceStore.emitChange();
+    }
+    if (isMoneyTransaction) {
+        ResourceStore.emitWorkerChange();
     }
 });

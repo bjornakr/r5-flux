@@ -1,4 +1,5 @@
 node_modules
+bundle.js
 
 # Ignore local webstorm config
 **/.idea/workspace.xml

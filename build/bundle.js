@@ -21461,9 +21461,9 @@
 
 	var _actionsItemActionsJs2 = _interopRequireDefault(_actionsItemActionsJs);
 
-	var resources = (_resources = {}, _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Dinero, { name: 'Dinero', count: 100000 }), _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Madera, { name: 'Madera', count: 0 }), _resources);
+	var resources = (_resources = {}, _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Dinero, { name: 'Dinero', count: 40 }), _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Madera, { name: 'Madera', count: 0 }), _resources);
 
-	var workers = _defineProperty({}, _constantsResourceConstantsJs2['default'].Madera, { name: 'Lumberjack', price: 50, hiredCount: 999999 });
+	var workers = _defineProperty({}, _constantsResourceConstantsJs2['default'].Madera, { name: 'Lumberjack', price: 50, hiredCount: 0 });
 
 	var ChangeEvent = Symbol();
 	var WorkerEvent = Symbol();
@@ -21483,16 +21483,21 @@
 	        key: 'getState',
 	        value: function getState() {
 	            return {
-	                resources: deepCopy(resources),
+	                resources: resources,
 	                workers: workers
 	            };
 	        }
 	    }, {
 	        key: 'getState',
 	        value: function getState(resource) {
+	            var canBuyWorker = false;
+	            if (workers[resource]) {
+	                canBuyWorker = resources[_constantsResourceConstantsJs2['default'].Dinero].count >= workers[resource].price;
+	            }
 	            return {
 	                resource: resources[resource],
-	                workers: workers[resource]
+	                workers: workers[resource],
+	                canBuyWorker: canBuyWorker
 	            };
 	        }
 	    }, {
@@ -21572,6 +21577,7 @@
 	var spendMoney = function spendMoney(amount) {
 	    if (amount <= resources[_constantsResourceConstantsJs2['default'].Dinero].count) {
 	        resources[_constantsResourceConstantsJs2['default'].Dinero].count -= amount;
+	        ResourceStore.emitWorkerChange();
 	        return true;
 	    }
 	    return false;
@@ -21594,6 +21600,7 @@
 
 	_DispatcherJs2['default'].register(function (payload) {
 	    var isValidAction = true;
+	    var isMoneyTransaction = false;
 
 	    switch (payload.action) {
 	        case _constantsResourceConstantsJs2['default'].AddResource:
@@ -21605,6 +21612,7 @@
 	            console.log(factor(resourceCount));
 	            resources[payload.type].count -= factor(resourceCount);
 	            resources[_constantsResourceConstantsJs2['default'].Dinero].count += 2 * factor(resourceCount);
+	            isMoneyTransaction = true;
 	            break;
 	        case _constantsResourceConstantsJs2['default'].BuyItem:
 	            resources[_constantsResourceConstantsJs2['default'].Dinero].count -= payload.item.price;
@@ -21615,7 +21623,7 @@
 	            if (!hireWorker(payload.resource)) {
 	                isValidAction = false;
 	            } else {
-	                ResourceStore.emitWorkerChange();
+	                isMoneyTransaction = true;
 	            }
 	            break;
 	        default:
@@ -21624,6 +21632,9 @@
 
 	    if (isValidAction) {
 	        ResourceStore.emitChange();
+	    }
+	    if (isMoneyTransaction) {
+	        ResourceStore.emitWorkerChange();
 	    }
 	});
 	module.exports = exports['default'];
@@ -24242,6 +24253,7 @@
 	                _this.workerSymbols += '♟';
 	            });
 
+	            console.log(this.state.canBuyWorker);
 	            return _react2['default'].createElement(
 	                'tr',
 	                null,
@@ -24261,7 +24273,8 @@
 	                    null,
 	                    _react2['default'].createElement(
 	                        'button',
-	                        { type: 'button', onClick: this._onClick },
+	                        { type: 'button', onClick: this._onClick,
+	                            disabled: !this.state.canBuyWorker },
 	                        'Hire'
 	                    )
 	                ),

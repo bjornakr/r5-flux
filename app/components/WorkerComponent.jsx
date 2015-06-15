@@ -29,12 +29,14 @@ export default class WorkerComponent extends React.Component {
             this.workerSymbols += "♟";
         });
 
+        console.log(this.state.canBuyWorker);
         return (
             <tr>
                 <td>{this.state.workers.name}</td>
                 <td style={{textAlign: "right"}}>€{this.state.workers.price}</td>
                 <td>
-                    <button type="button" onClick={this._onClick}>
+                    <button type="button" onClick={this._onClick}
+                        disabled={!this.state.canBuyWorker}>
                         Hire
                     </button>
                 </td>
