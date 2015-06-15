@@ -3,7 +3,7 @@ import React from 'react';
 import WorkerComponent from './WorkerComponent.jsx';
 import ResourceConstants from '../constants/ResourceConstants.js';
 
-export default class WorkersComponent extends React.Component {
+export default class WorkerOverviewComponent extends React.Component {
     render() {
         let fieldSetStyle = {};
         assign(fieldSetStyle, this.props.styles.fieldSetStyle);

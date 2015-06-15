@@ -2,8 +2,6 @@ import React from 'react';
 import ResourceActions from '../actions/ResourceActions.js';
 import ResourceStore from '../stores/ResourceStore.js';
 
-let x = 0;
-
 export default class WorkerComponent extends React.Component {
 
     constructor(props) {
@@ -55,7 +53,6 @@ export default class WorkerComponent extends React.Component {
 }
 
 let prettyPrintWorkers = (workerCount, level = 1) => {
-    //console.log(workerCount + ", " + level);
     if (workerCount <= 0) {
         return "";
     }
@@ -64,7 +61,6 @@ let prettyPrintWorkers = (workerCount, level = 1) => {
             return prettyPrintWorkers(workerCount - 1, level) + "♙";
         }
         else {
-            //console.log("(♟" + (Math.pow(10, level-1)) + ")");
             return prettyPrintWorkers(workerCount - 1, level).concat("♟<sub>" + (Math.pow(10, level-1)) + "</sub>");
         }
     }
@@ -72,12 +68,3 @@ let prettyPrintWorkers = (workerCount, level = 1) => {
         return prettyPrintWorkers(workerCount / 10, level+1);
     }
 };
-
-// iii
-//
-//100
-//group = 10;
-100
-
-// In: 23
-// Out: (♟10)(♟10)♟♟♟

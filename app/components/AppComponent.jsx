@@ -1,8 +1,8 @@
 import React from 'react';
 import PersonalBelongings from './PersonalBelongingsComponent.jsx';
-import Resources from './ResourcesComponent.jsx';
+import ResourceOverview from './ResourceOverviewComponent.jsx';
 import Store from './StoreComponent.jsx';
-import Workers from './WorkersComponent.jsx';
+import Workers from './WorkerOverviewComponent.jsx';
 
 export default class AppComponent extends React.Component {
 
@@ -25,7 +25,7 @@ export default class AppComponent extends React.Component {
         return (
             <div>
                 <PersonalBelongings styles = {styles} />
-                <Resources styles = {styles} />
+                <ResourceOverview styles = {styles} />
                 <Store styles = {styles} />
                 <Workers styles = {styles} />
             </div>
