@@ -5,11 +5,6 @@ import ResourceConstants from '../constants/ResourceConstants.js';
 
 export default class WorkersComponent extends React.Component {
     render() {
-        //let items = ItemStore.getStoreItems();
-        //let itemComponents = items.map((i, index) => {
-        //    return <StoreItemComponent key={index} item={i} />
-        //});
-
         let fieldSetStyle = {};
         assign(fieldSetStyle, this.props.styles.fieldSetStyle);
 

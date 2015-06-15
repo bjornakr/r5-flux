@@ -4,21 +4,22 @@ import Constants from './../constants/ResourceConstants.js';
 import ItemActions from './../actions/ItemActions.js';
 
 let resources = {
-    [Constants.Dinero]: {name: "Dinero", count: 1000},
+    [Constants.Dinero]: {name: "Dinero", count: 100000},
     [Constants.Madera]: {name: "Madera", count: 0}
 };
 
 let workers = {
-    [Constants.Madera]: {name: "Lumberjack", price: 50, hiredCount: 0}
+    [Constants.Madera]: {name: "Lumberjack", price: 50, hiredCount: 999999}
 };
 
 let ChangeEvent = Symbol();
+let WorkerEvent = Symbol();
 
 class _ResourceStore extends EventEmitter {
 
     getState() {
         return {
-            resources: resources,
+            resources: deepCopy(resources),
             workers: workers
         }
     }
@@ -49,7 +50,19 @@ class _ResourceStore extends EventEmitter {
      * @param {function} callback
      */
     removeChangeListener(callback) {
-        this.removeListener(this.changeEvent, callback);
+        this.removeListener(ChangeEvent, callback);
+    }
+
+    addWorkerChangeListener(callback) {
+        this.on(WorkerEvent, callback);
+    }
+
+    removeWorkerChangeListener(callback) {
+        this.removeListener(WorkerEvent, callback);
+    }
+
+    emitWorkerChange() {
+        this.emit(WorkerEvent);
     }
 }
 
@@ -125,6 +138,9 @@ Dispatcher.register(function (payload) {
             console.log("STORE: HIRE WORKER (" + payload.resource.toString() + ")");
             if (!hireWorker(payload.resource)) {
                 isValidAction = false;
+            }
+            else {
+                ResourceStore.emitWorkerChange();
             }
             break;
         default:

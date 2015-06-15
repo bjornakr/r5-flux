@@ -21461,11 +21461,12 @@
 
 	var _actionsItemActionsJs2 = _interopRequireDefault(_actionsItemActionsJs);
 
-	var resources = (_resources = {}, _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Dinero, { name: 'Dinero', count: 1000 }), _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Madera, { name: 'Madera', count: 0 }), _resources);
+	var resources = (_resources = {}, _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Dinero, { name: 'Dinero', count: 100000 }), _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Madera, { name: 'Madera', count: 0 }), _resources);
 
-	var workers = _defineProperty({}, _constantsResourceConstantsJs2['default'].Madera, { name: 'Lumberjack', price: 50, hiredCount: 0 });
+	var workers = _defineProperty({}, _constantsResourceConstantsJs2['default'].Madera, { name: 'Lumberjack', price: 50, hiredCount: 999999 });
 
 	var ChangeEvent = Symbol();
+	var WorkerEvent = Symbol();
 
 	var _ResourceStore = (function (_EventEmitter) {
 	    function _ResourceStore() {
@@ -21482,7 +21483,7 @@
 	        key: 'getState',
 	        value: function getState() {
 	            return {
-	                resources: resources,
+	                resources: deepCopy(resources),
 	                workers: workers
 	            };
 	        }
@@ -21520,7 +21521,22 @@
 	         * @param {function} callback
 	         */
 	        value: function removeChangeListener(callback) {
-	            this.removeListener(this.changeEvent, callback);
+	            this.removeListener(ChangeEvent, callback);
+	        }
+	    }, {
+	        key: 'addWorkerChangeListener',
+	        value: function addWorkerChangeListener(callback) {
+	            this.on(WorkerEvent, callback);
+	        }
+	    }, {
+	        key: 'removeWorkerChangeListener',
+	        value: function removeWorkerChangeListener(callback) {
+	            this.removeListener(WorkerEvent, callback);
+	        }
+	    }, {
+	        key: 'emitWorkerChange',
+	        value: function emitWorkerChange() {
+	            this.emit(WorkerEvent);
 	        }
 	    }]);
 
@@ -21598,6 +21614,8 @@
 	            console.log('STORE: HIRE WORKER (' + payload.resource.toString() + ')');
 	            if (!hireWorker(payload.resource)) {
 	                isValidAction = false;
+	            } else {
+	                ResourceStore.emitWorkerChange();
 	            }
 	            break;
 	        default:
@@ -24130,11 +24148,6 @@
 	    _createClass(WorkersComponent, [{
 	        key: 'render',
 	        value: function render() {
-	            //let items = ItemStore.getStoreItems();
-	            //let itemComponents = items.map((i, index) => {
-	            //    return <StoreItemComponent key={index} item={i} />
-	            //});
-
 	            var fieldSetStyle = {};
 	            (0, _objectAssign2['default'])(fieldSetStyle, this.props.styles.fieldSetStyle);
 
@@ -24173,7 +24186,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -24193,6 +24206,8 @@
 
 	var _storesResourceStoreJs2 = _interopRequireDefault(_storesResourceStoreJs);
 
+	var x = 0;
+
 	var WorkerComponent = (function (_React$Component) {
 	    function WorkerComponent(props) {
 	        _classCallCheck(this, WorkerComponent);
@@ -24201,7 +24216,6 @@
 	        this.state = _storesResourceStoreJs2['default'].getState(this.props.resource);
 	        this._onClick = this._onClick.bind(this);
 
-	        console.log('RENDER!');
 	        console.log(this.workerSymbols);
 	        this._onChange = this._onChange.bind(this);
 	    }
@@ -24211,12 +24225,12 @@
 	    _createClass(WorkerComponent, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            _storesResourceStoreJs2['default'].addChangeListener(this._onChange);
+	            _storesResourceStoreJs2['default'].addWorkerChangeListener(this._onChange);
 	        }
 	    }, {
 	        key: 'componentWillUnmount',
 	        value: function componentWillUnmount() {
-	            _storesResourceStoreJs2['default'].removeChangeListener(this._onChange);
+	            _storesResourceStoreJs2['default'].removeWorkerChangeListener(this._onChange);
 	        }
 	    }, {
 	        key: 'render',
@@ -24251,11 +24265,7 @@
 	                        'Hire'
 	                    )
 	                ),
-	                _react2['default'].createElement(
-	                    'td',
-	                    null,
-	                    this.workerSymbols
-	                )
+	                _react2['default'].createElement('td', { dangerouslySetInnerHTML: { __html: prettyPrintWorkers(this.state.workers.hiredCount) } })
 	            );
 	        }
 	    }, {
@@ -24274,7 +24284,44 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = WorkerComponent;
+
+	var prettyPrintWorkers = function prettyPrintWorkers(_x5) {
+	    var _arguments2 = arguments;
+	    var _again2 = true;
+
+	    _function2: while (_again2) {
+	        var workerCount = _x5;
+	        level = undefined;
+	        _again2 = false;
+	        var level = _arguments2[1] === undefined ? 1 : _arguments2[1];
+
+	        //console.log(workerCount + ", " + level);
+	        if (workerCount <= 0) {
+	            return '';
+	        } else if (workerCount % 10 > 0) {
+	            if (level === 1) {
+	                return prettyPrintWorkers(workerCount - 1, level) + '♙';
+	            } else {
+	                //console.log("(♟" + (Math.pow(10, level-1)) + ")");
+	                return prettyPrintWorkers(workerCount - 1, level).concat('♟<sub>' + Math.pow(10, level - 1) + '</sub>');
+	            }
+	        } else {
+	            _arguments2 = [_x5 = workerCount / 10, level + 1];
+	            _again2 = true;
+	            continue _function2;
+	        }
+	    }
+	};
+
+	// iii
+	//
+	//100
+	//group = 10;
+	100;
+
 	module.exports = exports['default'];
+	// In: 23
+	// Out: (♟10)(♟10)♟♟♟
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(195)))
 
 /***/ },
