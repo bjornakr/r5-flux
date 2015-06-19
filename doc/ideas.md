@@ -1,5 +1,12 @@
 # Ideas
 
+## Flow
+1. Chop _n_ wood
+2. Reveal boutique
+3. Buy better axe
+
+
+
 ## Resources
 * Money (gold silver bronze)
 * Wood

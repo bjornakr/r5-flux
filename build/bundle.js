@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(170);
+	module.exports = __webpack_require__(162);
 
 
 /***/ },
@@ -20466,21 +20466,33 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _PersonalBelongingsComponentJsx = __webpack_require__(159);
+	var _PersonalBelongingsComponentJsx = __webpack_require__(170);
 
 	var _PersonalBelongingsComponentJsx2 = _interopRequireDefault(_PersonalBelongingsComponentJsx);
 
-	var _ResourceOverviewComponentJsx = __webpack_require__(196);
+	var _ResourceOverviewComponentJsx = __webpack_require__(173);
 
 	var _ResourceOverviewComponentJsx2 = _interopRequireDefault(_ResourceOverviewComponentJsx);
 
-	var _StoreComponentJsx = __webpack_require__(192);
+	var _StoreComponentJsx = __webpack_require__(176);
 
 	var _StoreComponentJsx2 = _interopRequireDefault(_StoreComponentJsx);
 
-	var _WorkerOverviewComponentJsx = __webpack_require__(197);
+	var _WorkerOverviewComponentJsx = __webpack_require__(159);
 
 	var _WorkerOverviewComponentJsx2 = _interopRequireDefault(_WorkerOverviewComponentJsx);
+
+	var _LocationComponentJsx = __webpack_require__(178);
+
+	var _LocationComponentJsx2 = _interopRequireDefault(_LocationComponentJsx);
+
+	var _LocationOverviewComponentJsx = __webpack_require__(179);
+
+	var _LocationOverviewComponentJsx2 = _interopRequireDefault(_LocationOverviewComponentJsx);
+
+	var _LocationRouterComponentJsx = __webpack_require__(180);
+
+	var _LocationRouterComponentJsx2 = _interopRequireDefault(_LocationRouterComponentJsx);
 
 	var AppComponent = (function (_React$Component) {
 	    function AppComponent() {
@@ -20516,8 +20528,7 @@
 	                null,
 	                _react2['default'].createElement(_PersonalBelongingsComponentJsx2['default'], { styles: styles }),
 	                _react2['default'].createElement(_ResourceOverviewComponentJsx2['default'], { styles: styles }),
-	                _react2['default'].createElement(_StoreComponentJsx2['default'], { styles: styles }),
-	                _react2['default'].createElement(_WorkerOverviewComponentJsx2['default'], { styles: styles })
+	                _react2['default'].createElement(_LocationRouterComponentJsx2['default'], null)
 	            );
 	        }
 	    }]);
@@ -20527,6 +20538,14 @@
 
 	exports['default'] = AppComponent;
 	module.exports = exports['default'];
+
+	//<div>
+	//    <PersonalBelongings styles = {styles} />
+	//    <ResourceOverview styles = {styles} />
+	//    <Store styles = {styles} />
+	//    <Workers styles = {styles} />
+	//    <Location />
+	//</div>
 
 /***/ },
 /* 159 */
@@ -20539,8 +20558,6 @@
 	});
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -20556,47 +20573,29 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _storesItemStoreJs = __webpack_require__(161);
+	var _WorkerComponentJsx = __webpack_require__(161);
 
-	var _storesItemStoreJs2 = _interopRequireDefault(_storesItemStoreJs);
+	var _WorkerComponentJsx2 = _interopRequireDefault(_WorkerComponentJsx);
 
-	var PersonalBelongingsComponent = (function (_React$Component) {
-	    function PersonalBelongingsComponent(props) {
-	        _classCallCheck(this, PersonalBelongingsComponent);
+	var _constantsResourceConstantsJs = __webpack_require__(165);
 
-	        _get(Object.getPrototypeOf(PersonalBelongingsComponent.prototype), 'constructor', this).call(this, props);
+	var _constantsResourceConstantsJs2 = _interopRequireDefault(_constantsResourceConstantsJs);
 
-	        this.state = {
-	            items: _storesItemStoreJs2['default'].getPersonalBelongings()
-	        };
+	var WorkerOverviewComponent = (function (_React$Component) {
+	    function WorkerOverviewComponent() {
+	        _classCallCheck(this, WorkerOverviewComponent);
 
-	        this.__onChange = this.__onChange.bind(this);
+	        if (_React$Component != null) {
+	            _React$Component.apply(this, arguments);
+	        }
 	    }
 
-	    _inherits(PersonalBelongingsComponent, _React$Component);
+	    _inherits(WorkerOverviewComponent, _React$Component);
 
-	    _createClass(PersonalBelongingsComponent, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            _storesItemStoreJs2['default'].addChangeListener(this.__onChange);
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            _storesItemStoreJs2['default'].removeChangeListener(this.__onChange);
-	        }
-	    }, {
+	    _createClass(WorkerOverviewComponent, [{
 	        key: 'render',
 	        value: function render() {
-	            var itemListItems = this.state.items.map(function (i, index) {
-	                return _react2['default'].createElement(
-	                    'li',
-	                    { key: index },
-	                    i.name
-	                );
-	            });
-
-	            var fieldSetStyle = {}; //{background: "#E2D5BE"};
+	            var fieldSetStyle = {};
 	            (0, _objectAssign2['default'])(fieldSetStyle, this.props.styles.fieldSetStyle);
 
 	            return _react2['default'].createElement(
@@ -20605,22 +20604,22 @@
 	                _react2['default'].createElement(
 	                    'legend',
 	                    { style: this.props.styles.legendStyle },
-	                    'Personal belongings'
+	                    'Workers'
 	                ),
-	                itemListItems
+	                _react2['default'].createElement(
+	                    'table',
+	                    null,
+	                    _react2['default'].createElement(_WorkerComponentJsx2['default'], { resource: _constantsResourceConstantsJs2['default'].Madera }),
+	                    _react2['default'].createElement(_WorkerComponentJsx2['default'], { resource: _constantsResourceConstantsJs2['default'].Stone })
+	                )
 	            );
-	        }
-	    }, {
-	        key: '__onChange',
-	        value: function __onChange() {
-	            this.setState({ items: _storesItemStoreJs2['default'].getPersonalBelongings() });
 	        }
 	    }]);
 
-	    return PersonalBelongingsComponent;
+	    return WorkerOverviewComponent;
 	})(_react2['default'].Component);
 
-	exports['default'] = PersonalBelongingsComponent;
+	exports['default'] = WorkerOverviewComponent;
 	module.exports = exports['default'];
 
 /***/ },
@@ -20672,7 +20671,7 @@
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
 	    value: true
@@ -20680,520 +20679,7 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	var _events = __webpack_require__(162);
-
-	var _DispatcherJs = __webpack_require__(163);
-
-	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
-
-	var _constantsItemConstantsJs = __webpack_require__(164);
-
-	var _constantsItemConstantsJs2 = _interopRequireDefault(_constantsItemConstantsJs);
-
-	var _constantsItemTypeConstantsJs = __webpack_require__(165);
-
-	var _constantsItemTypeConstantsJs2 = _interopRequireDefault(_constantsItemTypeConstantsJs);
-
-	var _constantsResourceConstantsJs = __webpack_require__(166);
-
-	var _constantsResourceConstantsJs2 = _interopRequireDefault(_constantsResourceConstantsJs);
-
-	var ChangeEvent = Symbol();
-
-	var personalBelongings = [{ name: 'Dårlig øks', price: 9.9, level: 1, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Toothpick', price: 0.5, level: 0.1, type: _constantsResourceConstantsJs2['default'].Stone }];
-	var storeItems = [{ name: 'Kjøttøks', price: 9.99, level: 5, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Megaøks', price: 99.9, level: 5, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Hyperøks', price: 499.9, level: 15, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Schizzøks', price: 9999.9, level: 40, type: _constantsResourceConstantsJs2['default'].Madera }];
-
-	var _ItemStore = (function (_EventEmitter) {
-	    function _ItemStore() {
-	        _classCallCheck(this, _ItemStore);
-
-	        if (_EventEmitter != null) {
-	            _EventEmitter.apply(this, arguments);
-	        }
-	    }
-
-	    _inherits(_ItemStore, _EventEmitter);
-
-	    _createClass(_ItemStore, [{
-	        key: 'getPersonalBelongings',
-	        value: function getPersonalBelongings() {
-	            return personalBelongings;
-	        }
-	    }, {
-	        key: 'getStoreItems',
-	        value: function getStoreItems() {
-	            return storeItems;
-	        }
-	    }, {
-	        key: 'getToolForResource',
-	        value: function getToolForResource(resource) {
-	            return personalBelongings.filter(function (pb) {
-	                return pb.type === resource;
-	            }).sort(function (a, b) {
-	                return a.level < b.level;
-	            })[0];
-	        }
-	    }, {
-	        key: 'emitChange',
-	        value: function emitChange() {
-	            this.emit(ChangeEvent);
-	        }
-	    }, {
-	        key: 'addChangeListener',
-	        value: function addChangeListener(callback) {
-	            this.on(ChangeEvent, callback);
-	        }
-	    }, {
-	        key: 'removeChangeListener',
-	        value: function removeChangeListener(callback) {
-	            this.removeListener(ChangeEvent, callback);
-	        }
-	    }]);
-
-	    return _ItemStore;
-	})(_events.EventEmitter);
-
-	var ItemStore = new _ItemStore();
-	exports['default'] = ItemStore;
-
-	_DispatcherJs2['default'].register(function (payload) {
-	    var isValidAction = true;
-
-	    switch (payload.action) {
-	        case _constantsItemConstantsJs2['default'].AddItemToPersonalBelongings:
-	            console.log('Bought ' + payload.item.name);
-	            personalBelongings.push(payload.item);
-	            break;
-	        default:
-	            isValidAction = false;
-	            break;
-	    }
-
-	    if (isValidAction) {
-	        console.log('ONCE');
-	        ItemStore.emitChange();
-	    }
-	});
-	module.exports = exports['default'];
-
-/***/ },
-/* 162 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-	function EventEmitter() {
-	  this._events = this._events || {};
-	  this._maxListeners = this._maxListeners || undefined;
-	}
-	module.exports = EventEmitter;
-
-	// Backwards-compat with node 0.10.x
-	EventEmitter.EventEmitter = EventEmitter;
-
-	EventEmitter.prototype._events = undefined;
-	EventEmitter.prototype._maxListeners = undefined;
-
-	// By default EventEmitters will print a warning if more than 10 listeners are
-	// added to it. This is a useful default which helps finding memory leaks.
-	EventEmitter.defaultMaxListeners = 10;
-
-	// Obviously not all Emitters should be limited to 10. This function allows
-	// that to be increased. Set to zero for unlimited.
-	EventEmitter.prototype.setMaxListeners = function(n) {
-	  if (!isNumber(n) || n < 0 || isNaN(n))
-	    throw TypeError('n must be a positive number');
-	  this._maxListeners = n;
-	  return this;
-	};
-
-	EventEmitter.prototype.emit = function(type) {
-	  var er, handler, len, args, i, listeners;
-
-	  if (!this._events)
-	    this._events = {};
-
-	  // If there is no 'error' event listener then throw.
-	  if (type === 'error') {
-	    if (!this._events.error ||
-	        (isObject(this._events.error) && !this._events.error.length)) {
-	      er = arguments[1];
-	      if (er instanceof Error) {
-	        throw er; // Unhandled 'error' event
-	      }
-	      throw TypeError('Uncaught, unspecified "error" event.');
-	    }
-	  }
-
-	  handler = this._events[type];
-
-	  if (isUndefined(handler))
-	    return false;
-
-	  if (isFunction(handler)) {
-	    switch (arguments.length) {
-	      // fast cases
-	      case 1:
-	        handler.call(this);
-	        break;
-	      case 2:
-	        handler.call(this, arguments[1]);
-	        break;
-	      case 3:
-	        handler.call(this, arguments[1], arguments[2]);
-	        break;
-	      // slower
-	      default:
-	        len = arguments.length;
-	        args = new Array(len - 1);
-	        for (i = 1; i < len; i++)
-	          args[i - 1] = arguments[i];
-	        handler.apply(this, args);
-	    }
-	  } else if (isObject(handler)) {
-	    len = arguments.length;
-	    args = new Array(len - 1);
-	    for (i = 1; i < len; i++)
-	      args[i - 1] = arguments[i];
-
-	    listeners = handler.slice();
-	    len = listeners.length;
-	    for (i = 0; i < len; i++)
-	      listeners[i].apply(this, args);
-	  }
-
-	  return true;
-	};
-
-	EventEmitter.prototype.addListener = function(type, listener) {
-	  var m;
-
-	  if (!isFunction(listener))
-	    throw TypeError('listener must be a function');
-
-	  if (!this._events)
-	    this._events = {};
-
-	  // To avoid recursion in the case that type === "newListener"! Before
-	  // adding it to the listeners, first emit "newListener".
-	  if (this._events.newListener)
-	    this.emit('newListener', type,
-	              isFunction(listener.listener) ?
-	              listener.listener : listener);
-
-	  if (!this._events[type])
-	    // Optimize the case of one listener. Don't need the extra array object.
-	    this._events[type] = listener;
-	  else if (isObject(this._events[type]))
-	    // If we've already got an array, just append.
-	    this._events[type].push(listener);
-	  else
-	    // Adding the second element, need to change to array.
-	    this._events[type] = [this._events[type], listener];
-
-	  // Check for listener leak
-	  if (isObject(this._events[type]) && !this._events[type].warned) {
-	    var m;
-	    if (!isUndefined(this._maxListeners)) {
-	      m = this._maxListeners;
-	    } else {
-	      m = EventEmitter.defaultMaxListeners;
-	    }
-
-	    if (m && m > 0 && this._events[type].length > m) {
-	      this._events[type].warned = true;
-	      console.error('(node) warning: possible EventEmitter memory ' +
-	                    'leak detected. %d listeners added. ' +
-	                    'Use emitter.setMaxListeners() to increase limit.',
-	                    this._events[type].length);
-	      if (typeof console.trace === 'function') {
-	        // not supported in IE 10
-	        console.trace();
-	      }
-	    }
-	  }
-
-	  return this;
-	};
-
-	EventEmitter.prototype.on = EventEmitter.prototype.addListener;
-
-	EventEmitter.prototype.once = function(type, listener) {
-	  if (!isFunction(listener))
-	    throw TypeError('listener must be a function');
-
-	  var fired = false;
-
-	  function g() {
-	    this.removeListener(type, g);
-
-	    if (!fired) {
-	      fired = true;
-	      listener.apply(this, arguments);
-	    }
-	  }
-
-	  g.listener = listener;
-	  this.on(type, g);
-
-	  return this;
-	};
-
-	// emits a 'removeListener' event iff the listener was removed
-	EventEmitter.prototype.removeListener = function(type, listener) {
-	  var list, position, length, i;
-
-	  if (!isFunction(listener))
-	    throw TypeError('listener must be a function');
-
-	  if (!this._events || !this._events[type])
-	    return this;
-
-	  list = this._events[type];
-	  length = list.length;
-	  position = -1;
-
-	  if (list === listener ||
-	      (isFunction(list.listener) && list.listener === listener)) {
-	    delete this._events[type];
-	    if (this._events.removeListener)
-	      this.emit('removeListener', type, listener);
-
-	  } else if (isObject(list)) {
-	    for (i = length; i-- > 0;) {
-	      if (list[i] === listener ||
-	          (list[i].listener && list[i].listener === listener)) {
-	        position = i;
-	        break;
-	      }
-	    }
-
-	    if (position < 0)
-	      return this;
-
-	    if (list.length === 1) {
-	      list.length = 0;
-	      delete this._events[type];
-	    } else {
-	      list.splice(position, 1);
-	    }
-
-	    if (this._events.removeListener)
-	      this.emit('removeListener', type, listener);
-	  }
-
-	  return this;
-	};
-
-	EventEmitter.prototype.removeAllListeners = function(type) {
-	  var key, listeners;
-
-	  if (!this._events)
-	    return this;
-
-	  // not listening for removeListener, no need to emit
-	  if (!this._events.removeListener) {
-	    if (arguments.length === 0)
-	      this._events = {};
-	    else if (this._events[type])
-	      delete this._events[type];
-	    return this;
-	  }
-
-	  // emit removeListener for all listeners on all events
-	  if (arguments.length === 0) {
-	    for (key in this._events) {
-	      if (key === 'removeListener') continue;
-	      this.removeAllListeners(key);
-	    }
-	    this.removeAllListeners('removeListener');
-	    this._events = {};
-	    return this;
-	  }
-
-	  listeners = this._events[type];
-
-	  if (isFunction(listeners)) {
-	    this.removeListener(type, listeners);
-	  } else {
-	    // LIFO order
-	    while (listeners.length)
-	      this.removeListener(type, listeners[listeners.length - 1]);
-	  }
-	  delete this._events[type];
-
-	  return this;
-	};
-
-	EventEmitter.prototype.listeners = function(type) {
-	  var ret;
-	  if (!this._events || !this._events[type])
-	    ret = [];
-	  else if (isFunction(this._events[type]))
-	    ret = [this._events[type]];
-	  else
-	    ret = this._events[type].slice();
-	  return ret;
-	};
-
-	EventEmitter.listenerCount = function(emitter, type) {
-	  var ret;
-	  if (!emitter._events || !emitter._events[type])
-	    ret = 0;
-	  else if (isFunction(emitter._events[type]))
-	    ret = 1;
-	  else
-	    ret = emitter._events[type].length;
-	  return ret;
-	};
-
-	function isFunction(arg) {
-	  return typeof arg === 'function';
-	}
-
-	function isNumber(arg) {
-	  return typeof arg === 'number';
-	}
-
-	function isObject(arg) {
-	  return typeof arg === 'object' && arg !== null;
-	}
-
-	function isUndefined(arg) {
-	  return arg === void 0;
-	}
-
-
-/***/ },
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _callbacks = [];
-
-	var _Dispatcher = (function () {
-	    function _Dispatcher() {
-	        _classCallCheck(this, _Dispatcher);
-	    }
-
-	    _createClass(_Dispatcher, [{
-	        key: "register",
-	        value: function register(callback) {
-	            _callbacks.push(callback);
-	        }
-	    }, {
-	        key: "dispatch",
-	        value: function dispatch(payload) {
-	            console.log("DISPATCH: " + payload);
-	            _callbacks.forEach(function (c) {
-	                return c(payload);
-	            });
-	        }
-	    }]);
-
-	    return _Dispatcher;
-	})();
-
-	var Dispatcher = new _Dispatcher();
-	exports["default"] = Dispatcher;
-	module.exports = exports["default"];
-
-/***/ },
-/* 164 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports["default"] = {
-	    AddItemToPersonalBelongings: Symbol()
-	};
-	module.exports = exports["default"];
-
-/***/ },
-/* 165 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports["default"] = {
-	    Axe: Symbol()
-	};
-	module.exports = exports["default"];
-
-/***/ },
-/* 166 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports["default"] = {
-	    AddResource: Symbol(),
-	    SellResource: Symbol(),
-	    BuyItem: Symbol(),
-	    HireWorker: Symbol(),
-	    Dinero: Symbol("Dinero"),
-	    Madera: Symbol("Madera"),
-	    Stone: Symbol("Stone")
-	};
-	module.exports = exports["default"];
-
-/***/ },
-/* 167 */,
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -21205,327 +20691,123 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _storesResourceStoreJs = __webpack_require__(169);
-
-	var _storesResourceStoreJs2 = _interopRequireDefault(_storesResourceStoreJs);
-
-	var _storesItemStoreJs = __webpack_require__(161);
-
-	var _storesItemStoreJs2 = _interopRequireDefault(_storesItemStoreJs);
-
-	var _actionsResourceActionsJs = __webpack_require__(172);
+	var _actionsResourceActionsJs = __webpack_require__(163);
 
 	var _actionsResourceActionsJs2 = _interopRequireDefault(_actionsResourceActionsJs);
 
-	var ResourceComponent = (function (_React$Component) {
-	    function ResourceComponent(props) {
-	        _classCallCheck(this, ResourceComponent);
+	var _storesResourceStoreJs = __webpack_require__(166);
 
-	        _get(Object.getPrototypeOf(ResourceComponent.prototype), 'constructor', this).call(this, props);
-	        this.resource = _storesResourceStoreJs2['default'].getState(this.props.type).resource;
+	var _storesResourceStoreJs2 = _interopRequireDefault(_storesResourceStoreJs);
+
+	var WorkerComponent = (function (_React$Component) {
+	    function WorkerComponent(props) {
+	        _classCallCheck(this, WorkerComponent);
+
+	        _get(Object.getPrototypeOf(WorkerComponent.prototype), 'constructor', this).call(this, props);
+	        this.state = _storesResourceStoreJs2['default'].getState(this.props.resource);
+	        this._onClick = this._onClick.bind(this);
+
+	        console.log(this.workerSymbols);
 	        this._onChange = this._onChange.bind(this);
-	        this._sell = this._sell.bind(this);
-	        this._gather = this._gather.bind(this);
 	    }
 
-	    _inherits(ResourceComponent, _React$Component);
+	    _inherits(WorkerComponent, _React$Component);
 
-	    _createClass(ResourceComponent, [{
+	    _createClass(WorkerComponent, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            _storesResourceStoreJs2['default'].addChangeListener(this._onChange);
+	            _storesResourceStoreJs2['default'].addWorkerChangeListener(this._onChange);
 	        }
 	    }, {
 	        key: 'componentWillUnmount',
 	        value: function componentWillUnmount() {
-	            _storesResourceStoreJs2['default'].removeChangeListener(this._onChange);
+	            _storesResourceStoreJs2['default'].removeWorkerChangeListener(this._onChange);
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var resource = this.resource;
+	            var _this = this;
 
+	            this.workerSymbols = '';
+	            _.each(_.range(this.state.workers.hiredCount), function () {
+	                _this.workerSymbols += '♟';
+	            });
+
+	            console.log(this.state.canBuyWorker);
 	            return _react2['default'].createElement(
 	                'tr',
 	                null,
 	                _react2['default'].createElement(
 	                    'td',
 	                    null,
-	                    this.resource.name
+	                    this.state.workers.name
 	                ),
 	                _react2['default'].createElement(
 	                    'td',
-	                    null,
-	                    this.resource.count.toFixed(1)
+	                    { style: { textAlign: 'right' } },
+	                    '€',
+	                    this.state.workers.price
 	                ),
 	                _react2['default'].createElement(
 	                    'td',
 	                    null,
 	                    _react2['default'].createElement(
 	                        'button',
-	                        { type: 'button', style: { minWidth: 80, marginRight: 5 },
-	                            onClick: this._gather },
-	                        this.resource.gatherVerb
-	                    ),
-	                    _react2['default'].createElement(
-	                        'button',
-	                        { type: 'button', onClick: this._sell, disabled: resource.count <= 0 },
-	                        'Sell'
+	                        { type: 'button', onClick: this._onClick,
+	                            disabled: !this.state.canBuyWorker },
+	                        'Hire'
 	                    )
-	                )
+	                ),
+	                _react2['default'].createElement('td', { dangerouslySetInnerHTML: { __html: prettyPrintWorkers(this.state.workers.hiredCount) } })
 	            );
 	        }
 	    }, {
-	        key: '_gather',
-	        value: function _gather() {
-	            var resourceType = this.props.type;
-	            _actionsResourceActionsJs2['default'].gatherResource(resourceType, _storesItemStoreJs2['default'].getToolForResource(this.props.type));
-	        }
-	    }, {
-	        key: '_sell',
-	        value: function _sell() {
-	            _actionsResourceActionsJs2['default'].sell(this.props.type);
+	        key: '_onClick',
+	        value: function _onClick() {
+	            _actionsResourceActionsJs2['default'].hireWorker(this.props.resource);
 	        }
 	    }, {
 	        key: '_onChange',
 	        value: function _onChange() {
-	            this.setState(_storesResourceStoreJs2['default'].getState());
+	            this.setState(_storesResourceStoreJs2['default'].getState(this.props.resource));
 	        }
 	    }]);
 
-	    return ResourceComponent;
+	    return WorkerComponent;
 	})(_react2['default'].Component);
 
-	exports['default'] = ResourceComponent;
-	module.exports = exports['default'];
+	exports['default'] = WorkerComponent;
 
-/***/ },
-/* 169 */
-/***/ function(module, exports, __webpack_require__) {
+	var prettyPrintWorkers = function prettyPrintWorkers(_x5) {
+	    var _arguments2 = arguments;
+	    var _again2 = true;
 
-	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
+	    _function2: while (_again2) {
+	        var workerCount = _x5;
+	        level = undefined;
+	        _again2 = false;
+	        var level = _arguments2[1] === undefined ? 1 : _arguments2[1];
 
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _resources, _workers;
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	function _defineProperty(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); }
-
-	var _events = __webpack_require__(162);
-
-	var _DispatcherJs = __webpack_require__(163);
-
-	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
-
-	var _constantsResourceConstantsJs = __webpack_require__(166);
-
-	var _constantsResourceConstantsJs2 = _interopRequireDefault(_constantsResourceConstantsJs);
-
-	var _actionsItemActionsJs = __webpack_require__(171);
-
-	var _actionsItemActionsJs2 = _interopRequireDefault(_actionsItemActionsJs);
-
-	var resources = (_resources = {}, _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Dinero, { name: 'Dinero', count: 40, sellPrice: 1 }), _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Madera, { name: 'Madera', count: 0, sellPrice: 1, gatherVerb: 'Chop' }), _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Stone, { name: 'Stone', count: 0, sellPrice: 1.5, gatherVerb: 'Pick' }), _resources);
-
-	var workers = (_workers = {}, _defineProperty(_workers, _constantsResourceConstantsJs2['default'].Madera, { name: 'Lumberjack', price: 50, hiredCount: 0 }), _defineProperty(_workers, _constantsResourceConstantsJs2['default'].Stone, { name: 'Mason', price: 100, hiredCount: 0 }), _workers);
-
-	var ChangeEvent = Symbol();
-	var WorkerEvent = Symbol();
-
-	var _ResourceStore = (function (_EventEmitter) {
-	    function _ResourceStore() {
-	        _classCallCheck(this, _ResourceStore);
-
-	        if (_EventEmitter != null) {
-	            _EventEmitter.apply(this, arguments);
-	        }
-	    }
-
-	    _inherits(_ResourceStore, _EventEmitter);
-
-	    _createClass(_ResourceStore, [{
-	        key: 'getState',
-	        value: function getState() {
-	            return {
-	                resources: resources,
-	                workers: workers
-	            };
-	        }
-	    }, {
-	        key: 'getState',
-	        value: function getState(resource) {
-	            var canBuyWorker = false;
-	            if (workers[resource]) {
-	                canBuyWorker = resources[_constantsResourceConstantsJs2['default'].Dinero].count >= workers[resource].price;
-	            }
-	            return {
-	                resource: resources[resource],
-	                workers: workers[resource],
-	                canBuyWorker: canBuyWorker
-	            };
-	        }
-	    }, {
-	        key: 'getResource',
-	        value: function getResource(type) {
-	            return resources[type];
-	        }
-	    }, {
-	        key: 'emitChange',
-	        value: function emitChange() {
-	            this.emit(ChangeEvent);
-	        }
-	    }, {
-	        key: 'addChangeListener',
-
-	        /**
-	         * @param {function} callback
-	         */
-	        value: function addChangeListener(callback) {
-	            this.on(ChangeEvent, callback);
-	        }
-	    }, {
-	        key: 'removeChangeListener',
-
-	        /**
-	         * @param {function} callback
-	         */
-	        value: function removeChangeListener(callback) {
-	            this.removeListener(ChangeEvent, callback);
-	        }
-	    }, {
-	        key: 'addWorkerChangeListener',
-	        value: function addWorkerChangeListener(callback) {
-	            this.on(WorkerEvent, callback);
-	        }
-	    }, {
-	        key: 'removeWorkerChangeListener',
-	        value: function removeWorkerChangeListener(callback) {
-	            this.removeListener(WorkerEvent, callback);
-	        }
-	    }, {
-	        key: 'emitWorkerChange',
-	        value: function emitWorkerChange() {
-	            this.emit(WorkerEvent);
-	        }
-	    }]);
-
-	    return _ResourceStore;
-	})(_events.EventEmitter);
-
-	var ResourceStore = new _ResourceStore();
-	exports['default'] = ResourceStore;
-
-	var produce = function produce() {
-	    setInterval(function () {
-	        _.each([_constantsResourceConstantsJs2['default'].Madera, _constantsResourceConstantsJs2['default'].Stone], function (resource) {
-	            resources[resource].count += 0.1 * workers[resource].hiredCount;
-	        });
-	        ResourceStore.emitChange();
-	    }, 100);
-	};
-
-	produce();
-
-	var factor = function factor(resourceCount) {
-	    if (resourceCount < 1) {
-	        return resourceCount;
-	    }
-	    if (resourceCount >= 10) {
-	        return 10 * factor(resourceCount / 10);
-	    } else {
-	        return 1;
-	    }
-	};
-
-	/**
-	 * Subtracts money from account.
-	 *
-	 * @param {number} amount
-	 * @returns {boolean} true if account holds sufficient money, and money has been subtracted.
-	 */
-	var spendMoney = function spendMoney(amount) {
-	    if (amount <= resources[_constantsResourceConstantsJs2['default'].Dinero].count) {
-	        resources[_constantsResourceConstantsJs2['default'].Dinero].count -= amount;
-	        ResourceStore.emitWorkerChange();
-	        return true;
-	    }
-	    return false;
-	};
-
-	/**
-	 * Hire a worker for the given resource.
-	 *
-	 * @returns {boolean} True if worker was successfully hired.
-	 * @param {symbol} resource
-	 */
-	var hireWorker = function hireWorker(resource) {
-	    var worker = workers[resource];
-	    if (spendMoney(worker.price)) {
-	        worker.hiredCount++;
-	        return true;
-	    }
-	    return false;
-	};
-
-	var sellResource = function sellResource(resourceType) {
-	    var resource = resources[resourceType];
-	    var resourceCount = resource.count;
-	    var sellAmount = factor(resourceCount);
-	    resources[resourceType].count -= sellAmount;
-	    resources[_constantsResourceConstantsJs2['default'].Dinero].count += resources[resourceType].sellPrice * sellAmount;
-	};
-
-	_DispatcherJs2['default'].register(function (payload) {
-	    var isValidAction = true;
-	    var isMoneyTransaction = false;
-
-	    switch (payload.action) {
-	        case _constantsResourceConstantsJs2['default'].AddResource:
-	            resources[payload.type].count += 1 * payload.tool.level;
-	            console.log('STORE: Add resource (' + resources[payload.type] + ')');
-	            break;
-	        case _constantsResourceConstantsJs2['default'].SellResource:
-	            sellResource(payload.type);
-	            isMoneyTransaction = true;
-	            break;
-	        case _constantsResourceConstantsJs2['default'].BuyItem:
-	            resources[_constantsResourceConstantsJs2['default'].Dinero].count -= payload.item.price;
-	            _actionsItemActionsJs2['default'].addItemToPersonalBelongings(payload.item);
-	            break;
-	        case _constantsResourceConstantsJs2['default'].HireWorker:
-	            console.log('STORE: HIRE WORKER (' + payload.resource.toString() + ')');
-	            if (!hireWorker(payload.resource)) {
-	                isValidAction = false;
+	        if (workerCount <= 0) {
+	            return '';
+	        } else if (workerCount % 10 > 0) {
+	            if (level === 1) {
+	                return prettyPrintWorkers(workerCount - 1, level) + '♙';
 	            } else {
-	                isMoneyTransaction = true;
+	                return prettyPrintWorkers(workerCount - 1, level).concat('♟<sub>' + Math.pow(10, level - 1) + '</sub>');
 	            }
-	            break;
-	        default:
-	            isValidAction = false;
+	        } else {
+	            _arguments2 = [_x5 = workerCount / 10, level + 1];
+	            _again2 = true;
+	            continue _function2;
+	        }
 	    }
-
-	    if (isValidAction) {
-	        ResourceStore.emitChange();
-	    }
-	    if (isMoneyTransaction) {
-	        ResourceStore.emitWorkerChange();
-	    }
-	});
+	};
 	module.exports = exports['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(170)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(162)))
 
 /***/ },
-/* 170 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -23079,7 +22361,7 @@
 
 
 /***/ },
-/* 171 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23090,38 +22372,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _DispatcherJs = __webpack_require__(163);
+	var _DispatcherJs = __webpack_require__(164);
 
 	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
 
-	var _constantsItemConstantsJs = __webpack_require__(164);
-
-	var _constantsItemConstantsJs2 = _interopRequireDefault(_constantsItemConstantsJs);
-
-	exports['default'] = {
-	    addItemToPersonalBelongings: function addItemToPersonalBelongings(item) {
-	        _DispatcherJs2['default'].dispatch({ action: _constantsItemConstantsJs2['default'].AddItemToPersonalBelongings, item: item });
-	    }
-	};
-	module.exports = exports['default'];
-
-/***/ },
-/* 172 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _DispatcherJs = __webpack_require__(163);
-
-	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
-
-	var _constantsResourceConstantsJs = __webpack_require__(166);
+	var _constantsResourceConstantsJs = __webpack_require__(165);
 
 	var _constantsResourceConstantsJs2 = _interopRequireDefault(_constantsResourceConstantsJs);
 
@@ -23165,7 +22420,1064 @@
 	module.exports = exports['default'];
 
 /***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _callbacks = [];
+
+	var _Dispatcher = (function () {
+	    function _Dispatcher() {
+	        _classCallCheck(this, _Dispatcher);
+	    }
+
+	    _createClass(_Dispatcher, [{
+	        key: "register",
+	        value: function register(callback) {
+	            _callbacks.push(callback);
+	        }
+	    }, {
+	        key: "dispatch",
+	        value: function dispatch(payload) {
+	            console.log("DISPATCH: " + payload);
+	            _callbacks.forEach(function (c) {
+	                return c(payload);
+	            });
+	        }
+	    }]);
+
+	    return _Dispatcher;
+	})();
+
+	var Dispatcher = new _Dispatcher();
+	exports["default"] = Dispatcher;
+	module.exports = exports["default"];
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports["default"] = {
+	    AddResource: Symbol(),
+	    SellResource: Symbol(),
+	    BuyItem: Symbol(),
+	    HireWorker: Symbol(),
+	    Dinero: Symbol("Dinero"),
+	    Madera: Symbol("Madera"),
+	    Stone: Symbol("Stone")
+	};
+	module.exports = exports["default"];
+
+/***/ },
+/* 166 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _resources, _workers;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	function _defineProperty(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); }
+
+	var _events = __webpack_require__(167);
+
+	var _DispatcherJs = __webpack_require__(164);
+
+	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
+
+	var _constantsResourceConstantsJs = __webpack_require__(165);
+
+	var _constantsResourceConstantsJs2 = _interopRequireDefault(_constantsResourceConstantsJs);
+
+	var _actionsItemActionsJs = __webpack_require__(168);
+
+	var _actionsItemActionsJs2 = _interopRequireDefault(_actionsItemActionsJs);
+
+	var resources = (_resources = {}, _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Dinero, { name: 'Dinero', count: 40, sellPrice: 1 }), _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Madera, { name: 'Madera', count: 0, sellPrice: 1, gatherVerb: 'Chop' }), _defineProperty(_resources, _constantsResourceConstantsJs2['default'].Stone, { name: 'Stone', count: 0, sellPrice: 1.5, gatherVerb: 'Pick' }), _resources);
+
+	var workers = (_workers = {}, _defineProperty(_workers, _constantsResourceConstantsJs2['default'].Madera, { name: 'Lumberjack', price: 50, hiredCount: 0 }), _defineProperty(_workers, _constantsResourceConstantsJs2['default'].Stone, { name: 'Mason', price: 100, hiredCount: 0 }), _workers);
+
+	var ChangeEvent = Symbol();
+	var WorkerEvent = Symbol();
+
+	var _ResourceStore = (function (_EventEmitter) {
+	    function _ResourceStore() {
+	        _classCallCheck(this, _ResourceStore);
+
+	        if (_EventEmitter != null) {
+	            _EventEmitter.apply(this, arguments);
+	        }
+	    }
+
+	    _inherits(_ResourceStore, _EventEmitter);
+
+	    _createClass(_ResourceStore, [{
+	        key: 'getState',
+	        value: function getState() {
+	            return {
+	                resources: resources,
+	                workers: workers
+	            };
+	        }
+	    }, {
+	        key: 'getState',
+	        value: function getState(resource) {
+	            var canBuyWorker = false;
+	            if (workers[resource]) {
+	                canBuyWorker = resources[_constantsResourceConstantsJs2['default'].Dinero].count >= workers[resource].price;
+	            }
+	            return {
+	                resource: resources[resource],
+	                workers: workers[resource],
+	                canBuyWorker: canBuyWorker
+	            };
+	        }
+	    }, {
+	        key: 'getResource',
+	        value: function getResource(type) {
+	            return resources[type];
+	        }
+	    }, {
+	        key: 'emitChange',
+	        value: function emitChange() {
+	            this.emit(ChangeEvent);
+	        }
+	    }, {
+	        key: 'addChangeListener',
+
+	        /**
+	         * @param {function} callback
+	         */
+	        value: function addChangeListener(callback) {
+	            this.on(ChangeEvent, callback);
+	        }
+	    }, {
+	        key: 'removeChangeListener',
+
+	        /**
+	         * @param {function} callback
+	         */
+	        value: function removeChangeListener(callback) {
+	            this.removeListener(ChangeEvent, callback);
+	        }
+	    }, {
+	        key: 'addWorkerChangeListener',
+	        value: function addWorkerChangeListener(callback) {
+	            this.on(WorkerEvent, callback);
+	        }
+	    }, {
+	        key: 'removeWorkerChangeListener',
+	        value: function removeWorkerChangeListener(callback) {
+	            this.removeListener(WorkerEvent, callback);
+	        }
+	    }, {
+	        key: 'emitWorkerChange',
+	        value: function emitWorkerChange() {
+	            this.emit(WorkerEvent);
+	        }
+	    }]);
+
+	    return _ResourceStore;
+	})(_events.EventEmitter);
+
+	var ResourceStore = new _ResourceStore();
+	exports['default'] = ResourceStore;
+
+	var produce = function produce() {
+	    setInterval(function () {
+	        _.each([_constantsResourceConstantsJs2['default'].Madera, _constantsResourceConstantsJs2['default'].Stone], function (resource) {
+	            resources[resource].count += 0.1 * workers[resource].hiredCount;
+	        });
+	        ResourceStore.emitChange();
+	    }, 100);
+	};
+
+	produce();
+
+	var factor = function factor(resourceCount) {
+	    if (resourceCount < 1) {
+	        return resourceCount;
+	    }
+	    if (resourceCount >= 10) {
+	        return 10 * factor(resourceCount / 10);
+	    } else {
+	        return 1;
+	    }
+	};
+
+	/**
+	 * Subtracts money from account.
+	 *
+	 * @param {number} amount
+	 * @returns {boolean} true if account holds sufficient money, and money has been subtracted.
+	 */
+	var spendMoney = function spendMoney(amount) {
+	    if (amount <= resources[_constantsResourceConstantsJs2['default'].Dinero].count) {
+	        resources[_constantsResourceConstantsJs2['default'].Dinero].count -= amount;
+	        ResourceStore.emitWorkerChange();
+	        return true;
+	    }
+	    return false;
+	};
+
+	/**
+	 * Hire a worker for the given resource.
+	 *
+	 * @returns {boolean} True if worker was successfully hired.
+	 * @param {symbol} resource
+	 */
+	var hireWorker = function hireWorker(resource) {
+	    var worker = workers[resource];
+	    if (spendMoney(worker.price)) {
+	        worker.hiredCount++;
+	        return true;
+	    }
+	    return false;
+	};
+
+	var sellResource = function sellResource(resourceType) {
+	    var resource = resources[resourceType];
+	    var resourceCount = resource.count;
+	    var sellAmount = factor(resourceCount);
+	    resources[resourceType].count -= sellAmount;
+	    resources[_constantsResourceConstantsJs2['default'].Dinero].count += resources[resourceType].sellPrice * sellAmount;
+	};
+
+	_DispatcherJs2['default'].register(function (payload) {
+	    var isValidAction = true;
+	    var isMoneyTransaction = false;
+
+	    switch (payload.action) {
+	        case _constantsResourceConstantsJs2['default'].AddResource:
+	            resources[payload.type].count += 1 * payload.tool.level;
+	            console.log('STORE: Add resource (' + resources[payload.type] + ')');
+	            break;
+	        case _constantsResourceConstantsJs2['default'].SellResource:
+	            sellResource(payload.type);
+	            isMoneyTransaction = true;
+	            break;
+	        case _constantsResourceConstantsJs2['default'].BuyItem:
+	            resources[_constantsResourceConstantsJs2['default'].Dinero].count -= payload.item.price;
+	            _actionsItemActionsJs2['default'].addItemToPersonalBelongings(payload.item);
+	            break;
+	        case _constantsResourceConstantsJs2['default'].HireWorker:
+	            console.log('STORE: HIRE WORKER (' + payload.resource.toString() + ')');
+	            if (!hireWorker(payload.resource)) {
+	                isValidAction = false;
+	            } else {
+	                isMoneyTransaction = true;
+	            }
+	            break;
+	        default:
+	            isValidAction = false;
+	    }
+
+	    if (isValidAction) {
+	        ResourceStore.emitChange();
+	    }
+	    if (isMoneyTransaction) {
+	        ResourceStore.emitWorkerChange();
+	    }
+	});
+	module.exports = exports['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(162)))
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+	function EventEmitter() {
+	  this._events = this._events || {};
+	  this._maxListeners = this._maxListeners || undefined;
+	}
+	module.exports = EventEmitter;
+
+	// Backwards-compat with node 0.10.x
+	EventEmitter.EventEmitter = EventEmitter;
+
+	EventEmitter.prototype._events = undefined;
+	EventEmitter.prototype._maxListeners = undefined;
+
+	// By default EventEmitters will print a warning if more than 10 listeners are
+	// added to it. This is a useful default which helps finding memory leaks.
+	EventEmitter.defaultMaxListeners = 10;
+
+	// Obviously not all Emitters should be limited to 10. This function allows
+	// that to be increased. Set to zero for unlimited.
+	EventEmitter.prototype.setMaxListeners = function(n) {
+	  if (!isNumber(n) || n < 0 || isNaN(n))
+	    throw TypeError('n must be a positive number');
+	  this._maxListeners = n;
+	  return this;
+	};
+
+	EventEmitter.prototype.emit = function(type) {
+	  var er, handler, len, args, i, listeners;
+
+	  if (!this._events)
+	    this._events = {};
+
+	  // If there is no 'error' event listener then throw.
+	  if (type === 'error') {
+	    if (!this._events.error ||
+	        (isObject(this._events.error) && !this._events.error.length)) {
+	      er = arguments[1];
+	      if (er instanceof Error) {
+	        throw er; // Unhandled 'error' event
+	      }
+	      throw TypeError('Uncaught, unspecified "error" event.');
+	    }
+	  }
+
+	  handler = this._events[type];
+
+	  if (isUndefined(handler))
+	    return false;
+
+	  if (isFunction(handler)) {
+	    switch (arguments.length) {
+	      // fast cases
+	      case 1:
+	        handler.call(this);
+	        break;
+	      case 2:
+	        handler.call(this, arguments[1]);
+	        break;
+	      case 3:
+	        handler.call(this, arguments[1], arguments[2]);
+	        break;
+	      // slower
+	      default:
+	        len = arguments.length;
+	        args = new Array(len - 1);
+	        for (i = 1; i < len; i++)
+	          args[i - 1] = arguments[i];
+	        handler.apply(this, args);
+	    }
+	  } else if (isObject(handler)) {
+	    len = arguments.length;
+	    args = new Array(len - 1);
+	    for (i = 1; i < len; i++)
+	      args[i - 1] = arguments[i];
+
+	    listeners = handler.slice();
+	    len = listeners.length;
+	    for (i = 0; i < len; i++)
+	      listeners[i].apply(this, args);
+	  }
+
+	  return true;
+	};
+
+	EventEmitter.prototype.addListener = function(type, listener) {
+	  var m;
+
+	  if (!isFunction(listener))
+	    throw TypeError('listener must be a function');
+
+	  if (!this._events)
+	    this._events = {};
+
+	  // To avoid recursion in the case that type === "newListener"! Before
+	  // adding it to the listeners, first emit "newListener".
+	  if (this._events.newListener)
+	    this.emit('newListener', type,
+	              isFunction(listener.listener) ?
+	              listener.listener : listener);
+
+	  if (!this._events[type])
+	    // Optimize the case of one listener. Don't need the extra array object.
+	    this._events[type] = listener;
+	  else if (isObject(this._events[type]))
+	    // If we've already got an array, just append.
+	    this._events[type].push(listener);
+	  else
+	    // Adding the second element, need to change to array.
+	    this._events[type] = [this._events[type], listener];
+
+	  // Check for listener leak
+	  if (isObject(this._events[type]) && !this._events[type].warned) {
+	    var m;
+	    if (!isUndefined(this._maxListeners)) {
+	      m = this._maxListeners;
+	    } else {
+	      m = EventEmitter.defaultMaxListeners;
+	    }
+
+	    if (m && m > 0 && this._events[type].length > m) {
+	      this._events[type].warned = true;
+	      console.error('(node) warning: possible EventEmitter memory ' +
+	                    'leak detected. %d listeners added. ' +
+	                    'Use emitter.setMaxListeners() to increase limit.',
+	                    this._events[type].length);
+	      if (typeof console.trace === 'function') {
+	        // not supported in IE 10
+	        console.trace();
+	      }
+	    }
+	  }
+
+	  return this;
+	};
+
+	EventEmitter.prototype.on = EventEmitter.prototype.addListener;
+
+	EventEmitter.prototype.once = function(type, listener) {
+	  if (!isFunction(listener))
+	    throw TypeError('listener must be a function');
+
+	  var fired = false;
+
+	  function g() {
+	    this.removeListener(type, g);
+
+	    if (!fired) {
+	      fired = true;
+	      listener.apply(this, arguments);
+	    }
+	  }
+
+	  g.listener = listener;
+	  this.on(type, g);
+
+	  return this;
+	};
+
+	// emits a 'removeListener' event iff the listener was removed
+	EventEmitter.prototype.removeListener = function(type, listener) {
+	  var list, position, length, i;
+
+	  if (!isFunction(listener))
+	    throw TypeError('listener must be a function');
+
+	  if (!this._events || !this._events[type])
+	    return this;
+
+	  list = this._events[type];
+	  length = list.length;
+	  position = -1;
+
+	  if (list === listener ||
+	      (isFunction(list.listener) && list.listener === listener)) {
+	    delete this._events[type];
+	    if (this._events.removeListener)
+	      this.emit('removeListener', type, listener);
+
+	  } else if (isObject(list)) {
+	    for (i = length; i-- > 0;) {
+	      if (list[i] === listener ||
+	          (list[i].listener && list[i].listener === listener)) {
+	        position = i;
+	        break;
+	      }
+	    }
+
+	    if (position < 0)
+	      return this;
+
+	    if (list.length === 1) {
+	      list.length = 0;
+	      delete this._events[type];
+	    } else {
+	      list.splice(position, 1);
+	    }
+
+	    if (this._events.removeListener)
+	      this.emit('removeListener', type, listener);
+	  }
+
+	  return this;
+	};
+
+	EventEmitter.prototype.removeAllListeners = function(type) {
+	  var key, listeners;
+
+	  if (!this._events)
+	    return this;
+
+	  // not listening for removeListener, no need to emit
+	  if (!this._events.removeListener) {
+	    if (arguments.length === 0)
+	      this._events = {};
+	    else if (this._events[type])
+	      delete this._events[type];
+	    return this;
+	  }
+
+	  // emit removeListener for all listeners on all events
+	  if (arguments.length === 0) {
+	    for (key in this._events) {
+	      if (key === 'removeListener') continue;
+	      this.removeAllListeners(key);
+	    }
+	    this.removeAllListeners('removeListener');
+	    this._events = {};
+	    return this;
+	  }
+
+	  listeners = this._events[type];
+
+	  if (isFunction(listeners)) {
+	    this.removeListener(type, listeners);
+	  } else {
+	    // LIFO order
+	    while (listeners.length)
+	      this.removeListener(type, listeners[listeners.length - 1]);
+	  }
+	  delete this._events[type];
+
+	  return this;
+	};
+
+	EventEmitter.prototype.listeners = function(type) {
+	  var ret;
+	  if (!this._events || !this._events[type])
+	    ret = [];
+	  else if (isFunction(this._events[type]))
+	    ret = [this._events[type]];
+	  else
+	    ret = this._events[type].slice();
+	  return ret;
+	};
+
+	EventEmitter.listenerCount = function(emitter, type) {
+	  var ret;
+	  if (!emitter._events || !emitter._events[type])
+	    ret = 0;
+	  else if (isFunction(emitter._events[type]))
+	    ret = 1;
+	  else
+	    ret = emitter._events[type].length;
+	  return ret;
+	};
+
+	function isFunction(arg) {
+	  return typeof arg === 'function';
+	}
+
+	function isNumber(arg) {
+	  return typeof arg === 'number';
+	}
+
+	function isObject(arg) {
+	  return typeof arg === 'object' && arg !== null;
+	}
+
+	function isUndefined(arg) {
+	  return arg === void 0;
+	}
+
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _DispatcherJs = __webpack_require__(164);
+
+	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
+
+	var _constantsItemConstantsJs = __webpack_require__(169);
+
+	var _constantsItemConstantsJs2 = _interopRequireDefault(_constantsItemConstantsJs);
+
+	exports['default'] = {
+	    addItemToPersonalBelongings: function addItemToPersonalBelongings(item) {
+	        _DispatcherJs2['default'].dispatch({ action: _constantsItemConstantsJs2['default'].AddItemToPersonalBelongings, item: item });
+	    }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports["default"] = {
+	    AddItemToPersonalBelongings: Symbol()
+	};
+	module.exports = exports["default"];
+
+/***/ },
+/* 170 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _objectAssign = __webpack_require__(160);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _storesItemStoreJs = __webpack_require__(171);
+
+	var _storesItemStoreJs2 = _interopRequireDefault(_storesItemStoreJs);
+
+	var PersonalBelongingsComponent = (function (_React$Component) {
+	    function PersonalBelongingsComponent(props) {
+	        _classCallCheck(this, PersonalBelongingsComponent);
+
+	        _get(Object.getPrototypeOf(PersonalBelongingsComponent.prototype), 'constructor', this).call(this, props);
+
+	        this.state = {
+	            items: _storesItemStoreJs2['default'].getPersonalBelongings()
+	        };
+
+	        this.__onChange = this.__onChange.bind(this);
+	    }
+
+	    _inherits(PersonalBelongingsComponent, _React$Component);
+
+	    _createClass(PersonalBelongingsComponent, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            _storesItemStoreJs2['default'].addChangeListener(this.__onChange);
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            _storesItemStoreJs2['default'].removeChangeListener(this.__onChange);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var itemListItems = this.state.items.map(function (i, index) {
+	                return _react2['default'].createElement(
+	                    'li',
+	                    { key: index },
+	                    i.name
+	                );
+	            });
+
+	            var fieldSetStyle = {}; //{background: "#E2D5BE"};
+	            (0, _objectAssign2['default'])(fieldSetStyle, this.props.styles.fieldSetStyle);
+
+	            return _react2['default'].createElement(
+	                'fieldset',
+	                { style: fieldSetStyle },
+	                _react2['default'].createElement(
+	                    'legend',
+	                    { style: this.props.styles.legendStyle },
+	                    'Personal belongings'
+	                ),
+	                itemListItems
+	            );
+	        }
+	    }, {
+	        key: '__onChange',
+	        value: function __onChange() {
+	            this.setState({ items: _storesItemStoreJs2['default'].getPersonalBelongings() });
+	        }
+	    }]);
+
+	    return PersonalBelongingsComponent;
+	})(_react2['default'].Component);
+
+	exports['default'] = PersonalBelongingsComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 171 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _events = __webpack_require__(167);
+
+	var _DispatcherJs = __webpack_require__(164);
+
+	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
+
+	var _constantsItemConstantsJs = __webpack_require__(169);
+
+	var _constantsItemConstantsJs2 = _interopRequireDefault(_constantsItemConstantsJs);
+
+	var _constantsItemTypeConstantsJs = __webpack_require__(172);
+
+	var _constantsItemTypeConstantsJs2 = _interopRequireDefault(_constantsItemTypeConstantsJs);
+
+	var _constantsResourceConstantsJs = __webpack_require__(165);
+
+	var _constantsResourceConstantsJs2 = _interopRequireDefault(_constantsResourceConstantsJs);
+
+	var ChangeEvent = Symbol();
+
+	var personalBelongings = [{ name: 'Dårlig øks', price: 9.9, level: 1, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Toothpick', price: 0.5, level: 0.1, type: _constantsResourceConstantsJs2['default'].Stone }];
+	var storeItems = [{ name: 'Kjøttøks', price: 9.99, level: 5, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Megaøks', price: 99.9, level: 5, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Hyperøks', price: 499.9, level: 15, type: _constantsResourceConstantsJs2['default'].Madera }, { name: 'Schizzøks', price: 9999.9, level: 40, type: _constantsResourceConstantsJs2['default'].Madera }];
+
+	var _ItemStore = (function (_EventEmitter) {
+	    function _ItemStore() {
+	        _classCallCheck(this, _ItemStore);
+
+	        if (_EventEmitter != null) {
+	            _EventEmitter.apply(this, arguments);
+	        }
+	    }
+
+	    _inherits(_ItemStore, _EventEmitter);
+
+	    _createClass(_ItemStore, [{
+	        key: 'getPersonalBelongings',
+	        value: function getPersonalBelongings() {
+	            return personalBelongings;
+	        }
+	    }, {
+	        key: 'getStoreItems',
+	        value: function getStoreItems() {
+	            return storeItems;
+	        }
+	    }, {
+	        key: 'getToolForResource',
+	        value: function getToolForResource(resource) {
+	            return personalBelongings.filter(function (pb) {
+	                return pb.type === resource;
+	            }).sort(function (a, b) {
+	                return a.level < b.level;
+	            })[0];
+	        }
+	    }, {
+	        key: 'emitChange',
+	        value: function emitChange() {
+	            this.emit(ChangeEvent);
+	        }
+	    }, {
+	        key: 'addChangeListener',
+	        value: function addChangeListener(callback) {
+	            this.on(ChangeEvent, callback);
+	        }
+	    }, {
+	        key: 'removeChangeListener',
+	        value: function removeChangeListener(callback) {
+	            this.removeListener(ChangeEvent, callback);
+	        }
+	    }]);
+
+	    return _ItemStore;
+	})(_events.EventEmitter);
+
+	var ItemStore = new _ItemStore();
+	exports['default'] = ItemStore;
+
+	_DispatcherJs2['default'].register(function (payload) {
+	    var isValidAction = true;
+
+	    switch (payload.action) {
+	        case _constantsItemConstantsJs2['default'].AddItemToPersonalBelongings:
+	            console.log('Bought ' + payload.item.name);
+	            personalBelongings.push(payload.item);
+	            break;
+	        default:
+	            isValidAction = false;
+	            break;
+	    }
+
+	    if (isValidAction) {
+	        console.log('ONCE');
+	        ItemStore.emitChange();
+	    }
+	});
+	module.exports = exports['default'];
+
+/***/ },
+/* 172 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports["default"] = {
+	    Axe: Symbol()
+	};
+	module.exports = exports["default"];
+
+/***/ },
 /* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _objectAssign = __webpack_require__(160);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ResourceComponentJsx = __webpack_require__(174);
+
+	var _ResourceComponentJsx2 = _interopRequireDefault(_ResourceComponentJsx);
+
+	var _ResourceMoneyComponentJs = __webpack_require__(175);
+
+	var _ResourceMoneyComponentJs2 = _interopRequireDefault(_ResourceMoneyComponentJs);
+
+	var _constantsResourceConstantsJs = __webpack_require__(165);
+
+	var _constantsResourceConstantsJs2 = _interopRequireDefault(_constantsResourceConstantsJs);
+
+	var ResourceOverviewComponent = (function (_React$Component) {
+	    function ResourceOverviewComponent() {
+	        _classCallCheck(this, ResourceOverviewComponent);
+
+	        if (_React$Component != null) {
+	            _React$Component.apply(this, arguments);
+	        }
+	    }
+
+	    _inherits(ResourceOverviewComponent, _React$Component);
+
+	    _createClass(ResourceOverviewComponent, [{
+	        key: 'render',
+	        value: function render() {
+	            var fieldSetStyle = {}; //{background: "#D7E1E5"};
+	            (0, _objectAssign2['default'])(fieldSetStyle, this.props.styles.fieldSetStyle);
+
+	            return _react2['default'].createElement(
+	                'fieldset',
+	                { style: fieldSetStyle },
+	                _react2['default'].createElement(
+	                    'legend',
+	                    { style: this.props.styles.legendStyle },
+	                    'Resources'
+	                ),
+	                _react2['default'].createElement(
+	                    'table',
+	                    null,
+	                    _react2['default'].createElement(_ResourceMoneyComponentJs2['default'], { type: _constantsResourceConstantsJs2['default'].Dinero }),
+	                    _react2['default'].createElement(_ResourceComponentJsx2['default'], { type: _constantsResourceConstantsJs2['default'].Madera }),
+	                    _react2['default'].createElement(_ResourceComponentJsx2['default'], { type: _constantsResourceConstantsJs2['default'].Stone })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ResourceOverviewComponent;
+	})(_react2['default'].Component);
+
+	exports['default'] = ResourceOverviewComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _storesResourceStoreJs = __webpack_require__(166);
+
+	var _storesResourceStoreJs2 = _interopRequireDefault(_storesResourceStoreJs);
+
+	var _storesItemStoreJs = __webpack_require__(171);
+
+	var _storesItemStoreJs2 = _interopRequireDefault(_storesItemStoreJs);
+
+	var _actionsResourceActionsJs = __webpack_require__(163);
+
+	var _actionsResourceActionsJs2 = _interopRequireDefault(_actionsResourceActionsJs);
+
+	var ResourceComponent = (function (_React$Component) {
+	    function ResourceComponent(props) {
+	        _classCallCheck(this, ResourceComponent);
+
+	        _get(Object.getPrototypeOf(ResourceComponent.prototype), 'constructor', this).call(this, props);
+	        this.resource = _storesResourceStoreJs2['default'].getState(this.props.type).resource;
+	        this._onChange = this._onChange.bind(this);
+	        this._sell = this._sell.bind(this);
+	        this._gather = this._gather.bind(this);
+	    }
+
+	    _inherits(ResourceComponent, _React$Component);
+
+	    _createClass(ResourceComponent, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            _storesResourceStoreJs2['default'].addChangeListener(this._onChange);
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            _storesResourceStoreJs2['default'].removeChangeListener(this._onChange);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var resource = this.resource;
+
+	            return _react2['default'].createElement(
+	                'tr',
+	                null,
+	                _react2['default'].createElement(
+	                    'td',
+	                    null,
+	                    this.resource.name
+	                ),
+	                _react2['default'].createElement(
+	                    'td',
+	                    null,
+	                    this.resource.count.toFixed(1)
+	                ),
+	                _react2['default'].createElement(
+	                    'td',
+	                    null,
+	                    _react2['default'].createElement(
+	                        'button',
+	                        { type: 'button', style: { minWidth: 80, marginRight: 5 },
+	                            onClick: this._gather },
+	                        this.resource.gatherVerb
+	                    ),
+	                    _react2['default'].createElement(
+	                        'button',
+	                        { type: 'button', onClick: this._sell, disabled: resource.count <= 0 },
+	                        'Sell'
+	                    )
+	                )
+	            );
+	        }
+	    }, {
+	        key: '_gather',
+	        value: function _gather() {
+	            var resourceType = this.props.type;
+	            _actionsResourceActionsJs2['default'].gatherResource(resourceType, _storesItemStoreJs2['default'].getToolForResource(this.props.type));
+	        }
+	    }, {
+	        key: '_sell',
+	        value: function _sell() {
+	            _actionsResourceActionsJs2['default'].sell(this.props.type);
+	        }
+	    }, {
+	        key: '_onChange',
+	        value: function _onChange() {
+	            this.setState(_storesResourceStoreJs2['default'].getState());
+	        }
+	    }]);
+
+	    return ResourceComponent;
+	})(_react2['default'].Component);
+
+	exports['default'] = ResourceComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23186,7 +23498,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ResourceComponentJsx = __webpack_require__(168);
+	var _ResourceComponentJsx = __webpack_require__(174);
 
 	var _ResourceComponentJsx2 = _interopRequireDefault(_ResourceComponentJsx);
 
@@ -23229,25 +23541,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23272,11 +23566,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _StoreItemComponentJsx = __webpack_require__(193);
+	var _StoreItemComponentJsx = __webpack_require__(177);
 
 	var _StoreItemComponentJsx2 = _interopRequireDefault(_StoreItemComponentJsx);
 
-	var _storesItemStoreJs = __webpack_require__(161);
+	var _storesItemStoreJs = __webpack_require__(171);
 
 	var _storesItemStoreJs2 = _interopRequireDefault(_storesItemStoreJs);
 
@@ -23326,7 +23620,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 193 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23349,19 +23643,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _storesResourceStoreJs = __webpack_require__(169);
+	var _storesResourceStoreJs = __webpack_require__(166);
 
 	var _storesResourceStoreJs2 = _interopRequireDefault(_storesResourceStoreJs);
 
-	var _actionsItemActionsJs = __webpack_require__(171);
+	var _actionsItemActionsJs = __webpack_require__(168);
 
 	var _actionsItemActionsJs2 = _interopRequireDefault(_actionsItemActionsJs);
 
-	var _actionsResourceActionsJs = __webpack_require__(172);
+	var _actionsResourceActionsJs = __webpack_require__(163);
 
 	var _actionsResourceActionsJs2 = _interopRequireDefault(_actionsResourceActionsJs);
 
-	var _constantsResourceConstantsJs = __webpack_require__(166);
+	var _constantsResourceConstantsJs = __webpack_require__(165);
 
 	var _constantsResourceConstantsJs2 = _interopRequireDefault(_constantsResourceConstantsJs);
 
@@ -23452,299 +23746,285 @@
 	//StoreItemComponent.defaultProps = { ruru: 0 };
 
 /***/ },
-/* 194 */,
-/* 195 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(_) {'use strict';
+	"use strict";
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _actionsResourceActionsJs = __webpack_require__(172);
+	var LocationComponent = (function (_React$Component) {
+	    function LocationComponent() {
+	        _classCallCheck(this, LocationComponent);
 
-	var _actionsResourceActionsJs2 = _interopRequireDefault(_actionsResourceActionsJs);
-
-	var _storesResourceStoreJs = __webpack_require__(169);
-
-	var _storesResourceStoreJs2 = _interopRequireDefault(_storesResourceStoreJs);
-
-	var WorkerComponent = (function (_React$Component) {
-	    function WorkerComponent(props) {
-	        _classCallCheck(this, WorkerComponent);
-
-	        _get(Object.getPrototypeOf(WorkerComponent.prototype), 'constructor', this).call(this, props);
-	        this.state = _storesResourceStoreJs2['default'].getState(this.props.resource);
-	        this._onClick = this._onClick.bind(this);
-
-	        console.log(this.workerSymbols);
-	        this._onChange = this._onChange.bind(this);
+	        if (_React$Component != null) {
+	            _React$Component.apply(this, arguments);
+	        }
 	    }
 
-	    _inherits(WorkerComponent, _React$Component);
+	    _inherits(LocationComponent, _React$Component);
 
-	    _createClass(WorkerComponent, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            _storesResourceStoreJs2['default'].addWorkerChangeListener(this._onChange);
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            _storesResourceStoreJs2['default'].removeWorkerChangeListener(this._onChange);
-	        }
-	    }, {
-	        key: 'render',
+	    _createClass(LocationComponent, [{
+	        key: "render",
 	        value: function render() {
-	            var _this = this;
+	            var chopButtonStyle = {
+	                minHeight: 50,
+	                minWidth: 100,
+	                borderRadius: 5,
+	                color: "#FBFBFB",
+	                backgroundColor: "#3D6E97",
+	                //fontStyle: "italic",
+	                fontSize: 20
+	            };
 
-	            this.workerSymbols = '';
-	            _.each(_.range(this.state.workers.hiredCount), function () {
-	                _this.workerSymbols += '♟';
-	            });
-
-	            console.log(this.state.canBuyWorker);
-	            return _react2['default'].createElement(
-	                'tr',
-	                null,
-	                _react2['default'].createElement(
-	                    'td',
+	            return _react2["default"].createElement(
+	                "fieldset",
+	                { style: { textAlign: "center" } },
+	                _react2["default"].createElement(
+	                    "legend",
 	                    null,
-	                    this.state.workers.name
-	                ),
-	                _react2['default'].createElement(
-	                    'td',
-	                    { style: { textAlign: 'right' } },
-	                    '€',
-	                    this.state.workers.price
-	                ),
-	                _react2['default'].createElement(
-	                    'td',
-	                    null,
-	                    _react2['default'].createElement(
-	                        'button',
-	                        { type: 'button', onClick: this._onClick,
-	                            disabled: !this.state.canBuyWorker },
-	                        'Hire'
+	                    _react2["default"].createElement(
+	                        "h1",
+	                        null,
+	                        "Forest"
 	                    )
 	                ),
-	                _react2['default'].createElement('td', { dangerouslySetInnerHTML: { __html: prettyPrintWorkers(this.state.workers.hiredCount) } })
+	                _react2["default"].createElement(
+	                    "p",
+	                    null,
+	                    _react2["default"].createElement(
+	                        "strong",
+	                        null,
+	                        "Madera"
+	                    ),
+	                    " 3 587 789"
+	                ),
+	                _react2["default"].createElement(
+	                    "p",
+	                    null,
+	                    _react2["default"].createElement(
+	                        "button",
+	                        { style: chopButtonStyle },
+	                        "Chop!"
+	                    )
+	                ),
+	                _react2["default"].createElement(
+	                    "p",
+	                    null,
+	                    _react2["default"].createElement(
+	                        "button",
+	                        null,
+	                        "Leave"
+	                    )
+	                )
 	            );
-	        }
-	    }, {
-	        key: '_onClick',
-	        value: function _onClick() {
-	            _actionsResourceActionsJs2['default'].hireWorker(this.props.resource);
-	        }
-	    }, {
-	        key: '_onChange',
-	        value: function _onChange() {
-	            this.setState(_storesResourceStoreJs2['default'].getState(this.props.resource));
 	        }
 	    }]);
 
-	    return WorkerComponent;
-	})(_react2['default'].Component);
+	    return LocationComponent;
+	})(_react2["default"].Component);
 
-	exports['default'] = WorkerComponent;
+	exports["default"] = LocationComponent;
+	module.exports = exports["default"];
 
-	var prettyPrintWorkers = function prettyPrintWorkers(_x5) {
-	    var _arguments2 = arguments;
-	    var _again2 = true;
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
 
-	    _function2: while (_again2) {
-	        var workerCount = _x5;
-	        level = undefined;
-	        _again2 = false;
-	        var level = _arguments2[1] === undefined ? 1 : _arguments2[1];
+	'use strict';
 
-	        if (workerCount <= 0) {
-	            return '';
-	        } else if (workerCount % 10 > 0) {
-	            if (level === 1) {
-	                return prettyPrintWorkers(workerCount - 1, level) + '♙';
-	            } else {
-	                return prettyPrintWorkers(workerCount - 1, level).concat('♟<sub>' + Math.pow(10, level - 1) + '</sub>');
-	            }
-	        } else {
-	            _arguments2 = [_x5 = workerCount / 10, level + 1];
-	            _again2 = true;
-	            continue _function2;
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _objectAssign = __webpack_require__(160);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var LocationOverviewComponent = (function (_React$Component) {
+	    function LocationOverviewComponent() {
+	        _classCallCheck(this, LocationOverviewComponent);
+
+	        if (_React$Component != null) {
+	            _React$Component.apply(this, arguments);
 	        }
 	    }
+
+	    _inherits(LocationOverviewComponent, _React$Component);
+
+	    _createClass(LocationOverviewComponent, [{
+	        key: 'render',
+	        value: function render() {
+
+	            var buttonStyle = {
+	                minHeight: 150,
+	                minWidth: 150,
+	                borderRadius: 10,
+	                color: '#FFFFFF',
+	                textShadow: '3px 3px 5px #333333',
+	                //backgroundImage: "-webkit-linear-gradient(top, #34d934, #214d23)",
+	                fontSize: 20
+	            };
+
+	            var forestStyle = (0, _objectAssign2['default'])({}, buttonStyle);
+	            var mountainStyle = (0, _objectAssign2['default'])({}, buttonStyle);
+	            var townStyle = (0, _objectAssign2['default'])({}, buttonStyle);
+	            forestStyle['background'] = '#244700';
+	            mountainStyle['background'] = '#999966';
+	            townStyle['background'] = '#CC9900';
+
+	            return _react2['default'].createElement(
+	                'fieldset',
+	                { style: { textAlign: 'center' } },
+	                _react2['default'].createElement(
+	                    'legend',
+	                    null,
+	                    _react2['default'].createElement(
+	                        'h1',
+	                        null,
+	                        'Overview'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    'button',
+	                    { style: forestStyle },
+	                    'Forest'
+	                ),
+	                _react2['default'].createElement(
+	                    'button',
+	                    { style: mountainStyle },
+	                    'Mountains'
+	                ),
+	                _react2['default'].createElement(
+	                    'button',
+	                    { style: townStyle },
+	                    'Town'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return LocationOverviewComponent;
+	})(_react2['default'].Component);
+
+	exports['default'] = LocationOverviewComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _components;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	function _defineProperty(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	//import LocationStore from '../stores/LocationStore.jsx';
+
+	var _constantsLocationConstantsJs = __webpack_require__(181);
+
+	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
+
+	var _LocationOverviewComponentJsx = __webpack_require__(179);
+
+	var _LocationOverviewComponentJsx2 = _interopRequireDefault(_LocationOverviewComponentJsx);
+
+	var _LocationComponentJsx = __webpack_require__(178);
+
+	var _LocationComponentJsx2 = _interopRequireDefault(_LocationComponentJsx);
+
+	var getComponent = function getComponent() {
+	    return _react2['default'].createElement(_LocationOverviewComponentJsx2['default'], null);
 	};
-	module.exports = exports['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(170)))
 
-/***/ },
-/* 196 */
-/***/ function(module, exports, __webpack_require__) {
+	var components = (_components = {}, _defineProperty(_components, _constantsLocationConstantsJs2['default'].Overview, _react2['default'].createElement(_LocationOverviewComponentJsx2['default'], null)), _defineProperty(_components, _constantsLocationConstantsJs2['default'].Forest, _react2['default'].createElement(_LocationComponentJsx2['default'], null)), _components);
 
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	var _objectAssign = __webpack_require__(160);
-
-	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _ResourceComponentJsx = __webpack_require__(168);
-
-	var _ResourceComponentJsx2 = _interopRequireDefault(_ResourceComponentJsx);
-
-	var _ResourceMoneyComponentJs = __webpack_require__(173);
-
-	var _ResourceMoneyComponentJs2 = _interopRequireDefault(_ResourceMoneyComponentJs);
-
-	var _constantsResourceConstantsJs = __webpack_require__(166);
-
-	var _constantsResourceConstantsJs2 = _interopRequireDefault(_constantsResourceConstantsJs);
-
-	var ResourceOverviewComponent = (function (_React$Component) {
-	    function ResourceOverviewComponent() {
-	        _classCallCheck(this, ResourceOverviewComponent);
+	var LocationRouterComponent = (function (_React$Component) {
+	    function LocationRouterComponent() {
+	        _classCallCheck(this, LocationRouterComponent);
 
 	        if (_React$Component != null) {
 	            _React$Component.apply(this, arguments);
 	        }
 	    }
 
-	    _inherits(ResourceOverviewComponent, _React$Component);
+	    _inherits(LocationRouterComponent, _React$Component);
 
-	    _createClass(ResourceOverviewComponent, [{
+	    _createClass(LocationRouterComponent, [{
 	        key: 'render',
-	        value: function render() {
-	            var fieldSetStyle = {}; //{background: "#D7E1E5"};
-	            (0, _objectAssign2['default'])(fieldSetStyle, this.props.styles.fieldSetStyle);
 
-	            return _react2['default'].createElement(
-	                'fieldset',
-	                { style: fieldSetStyle },
-	                _react2['default'].createElement(
-	                    'legend',
-	                    { style: this.props.styles.legendStyle },
-	                    'Resources'
-	                ),
-	                _react2['default'].createElement(
-	                    'table',
-	                    null,
-	                    _react2['default'].createElement(_ResourceMoneyComponentJs2['default'], { type: _constantsResourceConstantsJs2['default'].Dinero }),
-	                    _react2['default'].createElement(_ResourceComponentJsx2['default'], { type: _constantsResourceConstantsJs2['default'].Madera }),
-	                    _react2['default'].createElement(_ResourceComponentJsx2['default'], { type: _constantsResourceConstantsJs2['default'].Stone })
-	                )
-	            );
+	        //constructor() {
+	        //this.state = LocationStore.getState();
+	        //}
+
+	        value: function render() {
+	            return components[_constantsLocationConstantsJs2['default'].Overview];
 	        }
 	    }]);
 
-	    return ResourceOverviewComponent;
+	    return LocationRouterComponent;
 	})(_react2['default'].Component);
 
-	exports['default'] = ResourceOverviewComponent;
+	exports['default'] = LocationRouterComponent;
 	module.exports = exports['default'];
 
 /***/ },
-/* 197 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
-	Object.defineProperty(exports, '__esModule', {
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	var _objectAssign = __webpack_require__(160);
-
-	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _WorkerComponentJsx = __webpack_require__(195);
-
-	var _WorkerComponentJsx2 = _interopRequireDefault(_WorkerComponentJsx);
-
-	var _constantsResourceConstantsJs = __webpack_require__(166);
-
-	var _constantsResourceConstantsJs2 = _interopRequireDefault(_constantsResourceConstantsJs);
-
-	var WorkerOverviewComponent = (function (_React$Component) {
-	    function WorkerOverviewComponent() {
-	        _classCallCheck(this, WorkerOverviewComponent);
-
-	        if (_React$Component != null) {
-	            _React$Component.apply(this, arguments);
-	        }
-	    }
-
-	    _inherits(WorkerOverviewComponent, _React$Component);
-
-	    _createClass(WorkerOverviewComponent, [{
-	        key: 'render',
-	        value: function render() {
-	            var fieldSetStyle = {};
-	            (0, _objectAssign2['default'])(fieldSetStyle, this.props.styles.fieldSetStyle);
-
-	            return _react2['default'].createElement(
-	                'fieldset',
-	                { style: fieldSetStyle },
-	                _react2['default'].createElement(
-	                    'legend',
-	                    { style: this.props.styles.legendStyle },
-	                    'Workers'
-	                ),
-	                _react2['default'].createElement(
-	                    'table',
-	                    null,
-	                    _react2['default'].createElement(_WorkerComponentJsx2['default'], { resource: _constantsResourceConstantsJs2['default'].Madera }),
-	                    _react2['default'].createElement(_WorkerComponentJsx2['default'], { resource: _constantsResourceConstantsJs2['default'].Stone })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return WorkerOverviewComponent;
-	})(_react2['default'].Component);
-
-	exports['default'] = WorkerOverviewComponent;
-	module.exports = exports['default'];
+	exports["default"] = {
+	    Overview: Symbol(),
+	    Forest: Symbol()
+	};
+	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);

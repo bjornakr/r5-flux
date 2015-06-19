@@ -3,6 +3,9 @@ import PersonalBelongings from './PersonalBelongingsComponent.jsx';
 import ResourceOverview from './ResourceOverviewComponent.jsx';
 import Store from './StoreComponent.jsx';
 import Workers from './WorkerOverviewComponent.jsx';
+import Location from './LocationComponent.jsx';
+import LocationOverview from './LocationOverviewComponent.jsx';
+import LocationRouter from './LocationRouterComponent.jsx';
 
 export default class AppComponent extends React.Component {
 
@@ -26,9 +29,15 @@ export default class AppComponent extends React.Component {
             <div>
                 <PersonalBelongings styles = {styles} />
                 <ResourceOverview styles = {styles} />
-                <Store styles = {styles} />
-                <Workers styles = {styles} />
+                <LocationRouter />
             </div>
         );
     }
 }
+//<div>
+//    <PersonalBelongings styles = {styles} />
+//    <ResourceOverview styles = {styles} />
+//    <Store styles = {styles} />
+//    <Workers styles = {styles} />
+//    <Location />
+//</div>
