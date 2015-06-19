@@ -23867,6 +23867,18 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _actionsLocationActionsJs = __webpack_require__(183);
+
+	var _actionsLocationActionsJs2 = _interopRequireDefault(_actionsLocationActionsJs);
+
+	var _constantsLocationConstantsJs = __webpack_require__(181);
+
+	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
+
+	var changeLocation = function changeLocation() {
+	    _actionsLocationActionsJs2['default'].changeLocation(_constantsLocationConstantsJs2['default'].Forest);
+	};
+
 	var LocationOverviewComponent = (function (_React$Component) {
 	    function LocationOverviewComponent() {
 	        _classCallCheck(this, LocationOverviewComponent);
@@ -23881,7 +23893,6 @@
 	    _createClass(LocationOverviewComponent, [{
 	        key: 'render',
 	        value: function render() {
-
 	            var buttonStyle = {
 	                minHeight: 150,
 	                minWidth: 150,
@@ -23913,7 +23924,7 @@
 	                ),
 	                _react2['default'].createElement(
 	                    'button',
-	                    { style: forestStyle },
+	                    { style: forestStyle, onClick: changeLocation },
 	                    'Forest'
 	                ),
 	                _react2['default'].createElement(
@@ -23948,6 +23959,8 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
 	var _components;
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -23962,7 +23975,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	//import LocationStore from '../stores/LocationStore.jsx';
+	var _storesLocationStoreJs = __webpack_require__(182);
+
+	var _storesLocationStoreJs2 = _interopRequireDefault(_storesLocationStoreJs);
 
 	var _constantsLocationConstantsJs = __webpack_require__(181);
 
@@ -23986,22 +24001,32 @@
 	    function LocationRouterComponent() {
 	        _classCallCheck(this, LocationRouterComponent);
 
-	        if (_React$Component != null) {
-	            _React$Component.apply(this, arguments);
-	        }
+	        _get(Object.getPrototypeOf(LocationRouterComponent.prototype), 'constructor', this).call(this);
+	        this.state = _storesLocationStoreJs2['default'].getState();
+	        this._onChange = this._onChange.bind(this);
 	    }
 
 	    _inherits(LocationRouterComponent, _React$Component);
 
 	    _createClass(LocationRouterComponent, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            _storesLocationStoreJs2['default'].addChangeListener(this._onChange);
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            _storesLocationStoreJs2['default'].removeChangeListener(this._onChange());
+	        }
+	    }, {
 	        key: 'render',
-
-	        //constructor() {
-	        //this.state = LocationStore.getState();
-	        //}
-
 	        value: function render() {
-	            return components[_constantsLocationConstantsJs2['default'].Overview];
+	            return components[this.state.currentLocation];
+	        }
+	    }, {
+	        key: '_onChange',
+	        value: function _onChange() {
+	            this.setState(_storesLocationStoreJs2['default'].getState());
 	        }
 	    }]);
 
@@ -24021,10 +24046,127 @@
 	    value: true
 	});
 	exports["default"] = {
+	    ChangeLocation: Symbol(),
 	    Overview: Symbol(),
 	    Forest: Symbol()
 	};
 	module.exports = exports["default"];
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _events = __webpack_require__(167);
+
+	var _constantsLocationConstantsJs = __webpack_require__(181);
+
+	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
+
+	var _DispatcherJs = __webpack_require__(164);
+
+	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
+
+	var ChangeEvent = Symbol();
+
+	var currentLocation = _constantsLocationConstantsJs2['default'].Overview;
+
+	var _LocationStore = (function (_EventEmitter) {
+	    function _LocationStore() {
+	        _classCallCheck(this, _LocationStore);
+
+	        if (_EventEmitter != null) {
+	            _EventEmitter.apply(this, arguments);
+	        }
+	    }
+
+	    _inherits(_LocationStore, _EventEmitter);
+
+	    _createClass(_LocationStore, [{
+	        key: 'getState',
+	        value: function getState() {
+	            return {
+	                currentLocation: currentLocation
+	            };
+	        }
+	    }, {
+	        key: 'addChangeListener',
+	        value: function addChangeListener(callback) {
+	            this.on(ChangeEvent, callback);
+	        }
+	    }, {
+	        key: 'removeChangeListener',
+	        value: function removeChangeListener(callback) {
+	            this.removeListener(ChangeEvent, callback);
+	        }
+	    }, {
+	        key: 'emitChange',
+	        value: function emitChange() {
+	            this.emit(ChangeEvent);
+	        }
+	    }]);
+
+	    return _LocationStore;
+	})(_events.EventEmitter);
+
+	var LocationStore = new _LocationStore();
+	exports['default'] = LocationStore;
+
+	_DispatcherJs2['default'].register(function (payload) {
+	    var validAction = true;
+	    switch (payload.action) {
+	        case _constantsLocationConstantsJs2['default'].ChangeLocation:
+	            currentLocation = payload.newLocation;
+	            break;
+	        default:
+	            validAction = false;
+	    }
+
+	    if (validAction) {
+	        LocationStore.emitChange();
+	    }
+	});
+	module.exports = exports['default'];
+
+/***/ },
+/* 183 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _DispatcherJs = __webpack_require__(164);
+
+	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
+
+	var _constantsLocationConstantsJs = __webpack_require__(181);
+
+	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
+
+	exports['default'] = {
+	    changeLocation: function changeLocation(newLocation) {
+	        _DispatcherJs2['default'].dispatch({ action: _constantsLocationConstantsJs2['default'].ChangeLocation, newLocation: newLocation });
+	    }
+	};
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);

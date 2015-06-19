@@ -1,11 +1,15 @@
 import assign from 'object-assign';
 import React from 'react';
+import Actions from '../actions/LocationActions.js';
+import Constants from '../constants/LocationConstants.js';
+
+let changeLocation = () => {
+    Actions.changeLocation(Constants.Forest);
+};
 
 export default class LocationOverviewComponent extends React.Component {
 
     render() {
-
-
         let buttonStyle = {
             minHeight: 150,
             minWidth: 150,
@@ -26,10 +30,10 @@ export default class LocationOverviewComponent extends React.Component {
         return (
             <fieldset style={{ textAlign: "center" }}>
                 <legend><h1>Overview</h1></legend>
-                <button style={forestStyle}>Forest</button>
+                <button style={forestStyle} onClick={changeLocation}>Forest</button>
                 <button style={mountainStyle}>Mountains</button>
                 <button style={townStyle}>Town</button>
             </fieldset>
         );
     }
-} 
+}

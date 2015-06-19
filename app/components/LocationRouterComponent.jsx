@@ -1,5 +1,5 @@
 import React from 'react';
-//import LocationStore from '../stores/LocationStore.jsx';
+import LocationStore from '../stores/LocationStore.js';
 import Constants from '../constants/LocationConstants.js';
 import LocationOverviewComponent from './LocationOverviewComponent.jsx';
 import LocationComponent from './LocationComponent.jsx';
@@ -15,11 +15,26 @@ let components = {
 
 export default class LocationRouterComponent extends React.Component {
 
-    //constructor() {
-        //this.state = LocationStore.getState();
-    //}
+    constructor() {
+        super();
+        this.state = LocationStore.getState();
+        this._onChange = this._onChange.bind(this);
+    }
+
+    componentDidMount() {
+        LocationStore.addChangeListener(this._onChange);
+    }
+
+    componentWillUnmount() {
+        LocationStore.removeChangeListener(this._onChange());
+    }
+
 
     render() {
-        return (components[Constants.Overview]);
+        return (components[this.state.currentLocation]);
+    }
+
+    _onChange() {
+        this.setState(LocationStore.getState());
     }
 }
