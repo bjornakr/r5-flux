@@ -46,6 +46,6 @@ export default class ResourceComponent extends React.Component {
     }
 
     _onChange() {
-        this.setState(ResourceStore.getState());
+        this.setState(ResourceStore.getState()); // TODO: Remove?
     }
 }

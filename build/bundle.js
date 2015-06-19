@@ -20482,15 +20482,15 @@
 
 	var _WorkerOverviewComponentJsx2 = _interopRequireDefault(_WorkerOverviewComponentJsx);
 
-	var _LocationComponentJsx = __webpack_require__(178);
+	var _GatherResourceComponentJsx = __webpack_require__(178);
 
-	var _LocationComponentJsx2 = _interopRequireDefault(_LocationComponentJsx);
+	var _GatherResourceComponentJsx2 = _interopRequireDefault(_GatherResourceComponentJsx);
 
-	var _LocationOverviewComponentJsx = __webpack_require__(179);
+	var _MainLocationOverviewComponentJsx = __webpack_require__(182);
 
-	var _LocationOverviewComponentJsx2 = _interopRequireDefault(_LocationOverviewComponentJsx);
+	var _MainLocationOverviewComponentJsx2 = _interopRequireDefault(_MainLocationOverviewComponentJsx);
 
-	var _LocationRouterComponentJsx = __webpack_require__(180);
+	var _LocationRouterComponentJsx = __webpack_require__(184);
 
 	var _LocationRouterComponentJsx2 = _interopRequireDefault(_LocationRouterComponentJsx);
 
@@ -22546,6 +22546,8 @@
 	        }
 	    }, {
 	        key: 'getState',
+
+	        // TODO: Rename, overshadows
 	        value: function getState(resource) {
 	            var canBuyWorker = false;
 	            if (workers[resource]) {
@@ -23466,7 +23468,7 @@
 	    }, {
 	        key: '_onChange',
 	        value: function _onChange() {
-	            this.setState(_storesResourceStoreJs2['default'].getState());
+	            this.setState(_storesResourceStoreJs2['default'].getState()); // TODO: Remove?
 	        }
 	    }]);
 
@@ -23749,100 +23751,281 @@
 /* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var LocationComponent = (function (_React$Component) {
-	    function LocationComponent() {
-	        _classCallCheck(this, LocationComponent);
+	var _actionsLocationActionsJs = __webpack_require__(179);
 
-	        if (_React$Component != null) {
-	            _React$Component.apply(this, arguments);
-	        }
+	var _actionsLocationActionsJs2 = _interopRequireDefault(_actionsLocationActionsJs);
+
+	var _storesLocationStoreJs = __webpack_require__(181);
+
+	var _storesLocationStoreJs2 = _interopRequireDefault(_storesLocationStoreJs);
+
+	var GatherResourceComponent = (function (_React$Component) {
+	    function GatherResourceComponent(props) {
+	        _classCallCheck(this, GatherResourceComponent);
+
+	        _get(Object.getPrototypeOf(GatherResourceComponent.prototype), 'constructor', this).call(this, props);
+	        this.location = _storesLocationStoreJs2['default'].getLocation(this.props.locationKey);
+	        this._leave = this._leave.bind(this);
 	    }
 
-	    _inherits(LocationComponent, _React$Component);
+	    _inherits(GatherResourceComponent, _React$Component);
 
-	    _createClass(LocationComponent, [{
-	        key: "render",
+	    _createClass(GatherResourceComponent, [{
+	        key: 'render',
 	        value: function render() {
 	            var chopButtonStyle = {
 	                minHeight: 50,
 	                minWidth: 100,
 	                borderRadius: 5,
-	                color: "#FBFBFB",
-	                backgroundColor: "#3D6E97",
+	                color: '#FBFBFB',
+	                backgroundColor: '#3D6E97',
 	                //fontStyle: "italic",
 	                fontSize: 20
 	            };
 
-	            return _react2["default"].createElement(
-	                "fieldset",
-	                { style: { textAlign: "center" } },
-	                _react2["default"].createElement(
-	                    "legend",
+	            return _react2['default'].createElement(
+	                'fieldset',
+	                { style: { textAlign: 'center' } },
+	                _react2['default'].createElement(
+	                    'legend',
 	                    null,
-	                    _react2["default"].createElement(
-	                        "h1",
+	                    _react2['default'].createElement(
+	                        'h1',
 	                        null,
-	                        "Forest"
+	                        this.location.name
 	                    )
 	                ),
-	                _react2["default"].createElement(
-	                    "p",
+	                _react2['default'].createElement(
+	                    'p',
 	                    null,
-	                    _react2["default"].createElement(
-	                        "strong",
+	                    _react2['default'].createElement(
+	                        'strong',
 	                        null,
-	                        "Madera"
+	                        'Madera'
 	                    ),
-	                    " 3 587 789"
+	                    ' 3 587 789'
 	                ),
-	                _react2["default"].createElement(
-	                    "p",
+	                _react2['default'].createElement(
+	                    'p',
 	                    null,
-	                    _react2["default"].createElement(
-	                        "button",
+	                    _react2['default'].createElement(
+	                        'button',
 	                        { style: chopButtonStyle },
-	                        "Chop!"
+	                        'Chop!'
 	                    )
 	                ),
-	                _react2["default"].createElement(
-	                    "p",
+	                _react2['default'].createElement(
+	                    'p',
 	                    null,
-	                    _react2["default"].createElement(
-	                        "button",
-	                        null,
-	                        "Leave"
+	                    _react2['default'].createElement(
+	                        'button',
+	                        { onClick: this._leave },
+	                        'Leave'
 	                    )
 	                )
 	            );
 	        }
+	    }, {
+	        key: '_leave',
+	        value: function _leave() {
+	            _actionsLocationActionsJs2['default'].leaveLocation(this.props.locationKey);
+	        }
 	    }]);
 
-	    return LocationComponent;
-	})(_react2["default"].Component);
+	    return GatherResourceComponent;
+	})(_react2['default'].Component);
 
-	exports["default"] = LocationComponent;
-	module.exports = exports["default"];
+	exports['default'] = GatherResourceComponent;
+	module.exports = exports['default'];
 
 /***/ },
 /* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _DispatcherJs = __webpack_require__(164);
+
+	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
+
+	var _constantsLocationConstantsJs = __webpack_require__(180);
+
+	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
+
+	exports['default'] = {
+	    changeLocation: function changeLocation(newLocation) {
+	        _DispatcherJs2['default'].dispatch({ action: _constantsLocationConstantsJs2['default'].ChangeLocation, newLocation: newLocation });
+	    },
+	    leaveLocation: function leaveLocation(location) {
+	        _DispatcherJs2['default'].dispatch({ action: _constantsLocationConstantsJs2['default'].LeaveLocation, location: location });
+	    }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports["default"] = {
+	    ChangeLocation: Symbol(),
+	    LeaveLocation: Symbol(),
+	    Overview: Symbol(),
+	    Forest: Symbol(),
+	    Mountain: Symbol()
+	};
+	module.exports = exports["default"];
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _locations;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	function _defineProperty(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); }
+
+	var _events = __webpack_require__(167);
+
+	var _constantsLocationConstantsJs = __webpack_require__(180);
+
+	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
+
+	var _DispatcherJs = __webpack_require__(164);
+
+	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
+
+	var ChangeEvent = Symbol();
+
+	var Overview = _constantsLocationConstantsJs2['default'].Overview;
+	var Forest = _constantsLocationConstantsJs2['default'].Forest;
+	var Mountain = _constantsLocationConstantsJs2['default'].Mountain;
+
+	var locations = (_locations = {}, _defineProperty(_locations, Overview, {
+	    name: 'Overview',
+	    childLocations: [Forest, Mountain]
+	}), _defineProperty(_locations, Forest, {
+	    name: 'Forest',
+	    parentLocation: Overview
+	}), _defineProperty(_locations, Mountain, {
+	    name: 'Mountain',
+	    parentLocation: Overview
+	}), _locations);
+
+	var currentLocation = Overview;
+
+	var _LocationStore = (function (_EventEmitter) {
+	    function _LocationStore() {
+	        _classCallCheck(this, _LocationStore);
+
+	        if (_EventEmitter != null) {
+	            _EventEmitter.apply(this, arguments);
+	        }
+	    }
+
+	    _inherits(_LocationStore, _EventEmitter);
+
+	    _createClass(_LocationStore, [{
+	        key: 'getState',
+	        value: function getState() {
+	            return {
+	                currentLocation: currentLocation,
+	                location: locations[currentLocation]
+	            };
+	        }
+	    }, {
+	        key: 'getLocation',
+	        value: function getLocation(locationKey) {
+	            return locations[locationKey];
+	        }
+	    }, {
+	        key: 'addChangeListener',
+	        value: function addChangeListener(callback) {
+	            this.on(ChangeEvent, callback);
+	        }
+	    }, {
+	        key: 'removeChangeListener',
+	        value: function removeChangeListener(callback) {
+	            this.removeListener(ChangeEvent, callback);
+	        }
+	    }, {
+	        key: 'emitChange',
+	        value: function emitChange() {
+	            this.emit(ChangeEvent);
+	        }
+	    }]);
+
+	    return _LocationStore;
+	})(_events.EventEmitter);
+
+	var LocationStore = new _LocationStore();
+	exports['default'] = LocationStore;
+
+	_DispatcherJs2['default'].register(function (payload) {
+	    var validAction = true;
+	    switch (payload.action) {
+	        case _constantsLocationConstantsJs2['default'].ChangeLocation:
+	            currentLocation = payload.newLocation;
+	            break;
+	        case _constantsLocationConstantsJs2['default'].LeaveLocation:
+	            currentLocation = locations[payload.location].parentLocation;
+	            console.log(currentLocation);
+	            break;
+	        default:
+	            validAction = false;
+	    }
+
+	    if (validAction) {
+	        LocationStore.emitChange();
+	    }
+	});
+	module.exports = exports['default'];
+
+/***/ },
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23867,30 +24050,30 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _actionsLocationActionsJs = __webpack_require__(183);
+	var _actionsLocationActionsJs = __webpack_require__(179);
 
 	var _actionsLocationActionsJs2 = _interopRequireDefault(_actionsLocationActionsJs);
 
-	var _constantsLocationConstantsJs = __webpack_require__(181);
+	var _constantsLocationConstantsJs = __webpack_require__(180);
 
 	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
 
-	var changeLocation = function changeLocation() {
-	    _actionsLocationActionsJs2['default'].changeLocation(_constantsLocationConstantsJs2['default'].Forest);
-	};
+	var _LocationComponentJsx = __webpack_require__(183);
 
-	var LocationOverviewComponent = (function (_React$Component) {
-	    function LocationOverviewComponent() {
-	        _classCallCheck(this, LocationOverviewComponent);
+	var _LocationComponentJsx2 = _interopRequireDefault(_LocationComponentJsx);
+
+	var MainLocationOverviewComponent = (function (_React$Component) {
+	    function MainLocationOverviewComponent() {
+	        _classCallCheck(this, MainLocationOverviewComponent);
 
 	        if (_React$Component != null) {
 	            _React$Component.apply(this, arguments);
 	        }
 	    }
 
-	    _inherits(LocationOverviewComponent, _React$Component);
+	    _inherits(MainLocationOverviewComponent, _React$Component);
 
-	    _createClass(LocationOverviewComponent, [{
+	    _createClass(MainLocationOverviewComponent, [{
 	        key: 'render',
 	        value: function render() {
 	            var buttonStyle = {
@@ -23899,14 +24082,13 @@
 	                borderRadius: 10,
 	                color: '#FFFFFF',
 	                textShadow: '3px 3px 5px #333333',
-	                //backgroundImage: "-webkit-linear-gradient(top, #34d934, #214d23)",
 	                fontSize: 20
 	            };
 
 	            var forestStyle = (0, _objectAssign2['default'])({}, buttonStyle);
 	            var mountainStyle = (0, _objectAssign2['default'])({}, buttonStyle);
 	            var townStyle = (0, _objectAssign2['default'])({}, buttonStyle);
-	            forestStyle['background'] = '#244700';
+	            forestStyle['background'] = '#333300';
 	            mountainStyle['background'] = '#999966';
 	            townStyle['background'] = '#CC9900';
 
@@ -23922,16 +24104,8 @@
 	                        'Overview'
 	                    )
 	                ),
-	                _react2['default'].createElement(
-	                    'button',
-	                    { style: forestStyle, onClick: changeLocation },
-	                    'Forest'
-	                ),
-	                _react2['default'].createElement(
-	                    'button',
-	                    { style: mountainStyle },
-	                    'Mountains'
-	                ),
+	                _react2['default'].createElement(_LocationComponentJsx2['default'], { style: forestStyle, location: _constantsLocationConstantsJs2['default'].Forest }),
+	                _react2['default'].createElement(_LocationComponentJsx2['default'], { style: mountainStyle, location: _constantsLocationConstantsJs2['default'].Mountain }),
 	                _react2['default'].createElement(
 	                    'button',
 	                    { style: townStyle },
@@ -23941,14 +24115,79 @@
 	        }
 	    }]);
 
-	    return LocationOverviewComponent;
+	    return MainLocationOverviewComponent;
 	})(_react2['default'].Component);
 
-	exports['default'] = LocationOverviewComponent;
+	exports['default'] = MainLocationOverviewComponent;
 	module.exports = exports['default'];
 
 /***/ },
-/* 180 */
+/* 183 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _actionsLocationActionsJs = __webpack_require__(179);
+
+	var _actionsLocationActionsJs2 = _interopRequireDefault(_actionsLocationActionsJs);
+
+	var _storesLocationStoreJs = __webpack_require__(181);
+
+	var _storesLocationStoreJs2 = _interopRequireDefault(_storesLocationStoreJs);
+
+	var LocationComponent = (function (_React$Component) {
+	    function LocationComponent(props) {
+	        _classCallCheck(this, LocationComponent);
+
+	        _get(Object.getPrototypeOf(LocationComponent.prototype), 'constructor', this).call(this, props);
+	        this.location = _storesLocationStoreJs2['default'].getLocation(this.props.location);
+	        this._click = this._click.bind(this);
+	    }
+
+	    _inherits(LocationComponent, _React$Component);
+
+	    _createClass(LocationComponent, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2['default'].createElement(
+	                'button',
+	                { style: this.props.style, onClick: this._click },
+	                this.location.name
+	            );
+	        }
+	    }, {
+	        key: '_click',
+	        value: function _click() {
+	            _actionsLocationActionsJs2['default'].changeLocation(this.props.location);
+	        }
+	    }]);
+
+	    return LocationComponent;
+	})(_react2['default'].Component);
+
+	exports['default'] = LocationComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23975,27 +24214,23 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _storesLocationStoreJs = __webpack_require__(182);
+	var _storesLocationStoreJs = __webpack_require__(181);
 
 	var _storesLocationStoreJs2 = _interopRequireDefault(_storesLocationStoreJs);
 
-	var _constantsLocationConstantsJs = __webpack_require__(181);
+	var _constantsLocationConstantsJs = __webpack_require__(180);
 
 	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
 
-	var _LocationOverviewComponentJsx = __webpack_require__(179);
+	var _MainLocationOverviewComponentJsx = __webpack_require__(182);
 
-	var _LocationOverviewComponentJsx2 = _interopRequireDefault(_LocationOverviewComponentJsx);
+	var _MainLocationOverviewComponentJsx2 = _interopRequireDefault(_MainLocationOverviewComponentJsx);
 
-	var _LocationComponentJsx = __webpack_require__(178);
+	var _GatherResourceComponentJsx = __webpack_require__(178);
 
-	var _LocationComponentJsx2 = _interopRequireDefault(_LocationComponentJsx);
+	var _GatherResourceComponentJsx2 = _interopRequireDefault(_GatherResourceComponentJsx);
 
-	var getComponent = function getComponent() {
-	    return _react2['default'].createElement(_LocationOverviewComponentJsx2['default'], null);
-	};
-
-	var components = (_components = {}, _defineProperty(_components, _constantsLocationConstantsJs2['default'].Overview, _react2['default'].createElement(_LocationOverviewComponentJsx2['default'], null)), _defineProperty(_components, _constantsLocationConstantsJs2['default'].Forest, _react2['default'].createElement(_LocationComponentJsx2['default'], null)), _components);
+	var components = (_components = {}, _defineProperty(_components, _constantsLocationConstantsJs2['default'].Overview, _react2['default'].createElement(_MainLocationOverviewComponentJsx2['default'], null)), _defineProperty(_components, _constantsLocationConstantsJs2['default'].Forest, _react2['default'].createElement(_GatherResourceComponentJsx2['default'], { locationKey: _constantsLocationConstantsJs2['default'].Forest })), _defineProperty(_components, _constantsLocationConstantsJs2['default'].Mountain, _react2['default'].createElement(_GatherResourceComponentJsx2['default'], { locationKey: _constantsLocationConstantsJs2['default'].Mountain })), _components);
 
 	var LocationRouterComponent = (function (_React$Component) {
 	    function LocationRouterComponent() {
@@ -24034,138 +24269,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = LocationRouterComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 181 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports["default"] = {
-	    ChangeLocation: Symbol(),
-	    Overview: Symbol(),
-	    Forest: Symbol()
-	};
-	module.exports = exports["default"];
-
-/***/ },
-/* 182 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	var _events = __webpack_require__(167);
-
-	var _constantsLocationConstantsJs = __webpack_require__(181);
-
-	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
-
-	var _DispatcherJs = __webpack_require__(164);
-
-	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
-
-	var ChangeEvent = Symbol();
-
-	var currentLocation = _constantsLocationConstantsJs2['default'].Overview;
-
-	var _LocationStore = (function (_EventEmitter) {
-	    function _LocationStore() {
-	        _classCallCheck(this, _LocationStore);
-
-	        if (_EventEmitter != null) {
-	            _EventEmitter.apply(this, arguments);
-	        }
-	    }
-
-	    _inherits(_LocationStore, _EventEmitter);
-
-	    _createClass(_LocationStore, [{
-	        key: 'getState',
-	        value: function getState() {
-	            return {
-	                currentLocation: currentLocation
-	            };
-	        }
-	    }, {
-	        key: 'addChangeListener',
-	        value: function addChangeListener(callback) {
-	            this.on(ChangeEvent, callback);
-	        }
-	    }, {
-	        key: 'removeChangeListener',
-	        value: function removeChangeListener(callback) {
-	            this.removeListener(ChangeEvent, callback);
-	        }
-	    }, {
-	        key: 'emitChange',
-	        value: function emitChange() {
-	            this.emit(ChangeEvent);
-	        }
-	    }]);
-
-	    return _LocationStore;
-	})(_events.EventEmitter);
-
-	var LocationStore = new _LocationStore();
-	exports['default'] = LocationStore;
-
-	_DispatcherJs2['default'].register(function (payload) {
-	    var validAction = true;
-	    switch (payload.action) {
-	        case _constantsLocationConstantsJs2['default'].ChangeLocation:
-	            currentLocation = payload.newLocation;
-	            break;
-	        default:
-	            validAction = false;
-	    }
-
-	    if (validAction) {
-	        LocationStore.emitChange();
-	    }
-	});
-	module.exports = exports['default'];
-
-/***/ },
-/* 183 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _DispatcherJs = __webpack_require__(164);
-
-	var _DispatcherJs2 = _interopRequireDefault(_DispatcherJs);
-
-	var _constantsLocationConstantsJs = __webpack_require__(181);
-
-	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
-
-	exports['default'] = {
-	    changeLocation: function changeLocation(newLocation) {
-	        _DispatcherJs2['default'].dispatch({ action: _constantsLocationConstantsJs2['default'].ChangeLocation, newLocation: newLocation });
-	    }
-	};
 	module.exports = exports['default'];
 
 /***/ }

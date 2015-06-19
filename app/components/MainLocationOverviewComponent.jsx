@@ -2,12 +2,9 @@ import assign from 'object-assign';
 import React from 'react';
 import Actions from '../actions/LocationActions.js';
 import Constants from '../constants/LocationConstants.js';
+import LocationComponent from './LocationComponent.jsx';
 
-let changeLocation = () => {
-    Actions.changeLocation(Constants.Forest);
-};
-
-export default class LocationOverviewComponent extends React.Component {
+export default class MainLocationOverviewComponent extends React.Component {
 
     render() {
         let buttonStyle = {
@@ -16,22 +13,21 @@ export default class LocationOverviewComponent extends React.Component {
             borderRadius: 10,
             color: "#FFFFFF",
             textShadow: "3px 3px 5px #333333",
-            //backgroundImage: "-webkit-linear-gradient(top, #34d934, #214d23)",
             fontSize: 20
         };
 
         let forestStyle = assign({}, buttonStyle);
         let mountainStyle = assign({}, buttonStyle);
         let townStyle = assign({}, buttonStyle);
-        forestStyle["background"] = "#244700";
+        forestStyle["background"] = "#333300";
         mountainStyle["background"] = "#999966";
         townStyle["background"] = "#CC9900";
 
         return (
             <fieldset style={{ textAlign: "center" }}>
                 <legend><h1>Overview</h1></legend>
-                <button style={forestStyle} onClick={changeLocation}>Forest</button>
-                <button style={mountainStyle}>Mountains</button>
+                <LocationComponent style={forestStyle} location={Constants.Forest} />
+                <LocationComponent style={mountainStyle} location={Constants.Mountain} />
                 <button style={townStyle}>Town</button>
             </fieldset>
         );

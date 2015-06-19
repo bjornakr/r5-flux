@@ -1,16 +1,14 @@
 import React from 'react';
 import LocationStore from '../stores/LocationStore.js';
 import Constants from '../constants/LocationConstants.js';
-import LocationOverviewComponent from './LocationOverviewComponent.jsx';
-import LocationComponent from './LocationComponent.jsx';
+import LocationOverviewComponent from './MainLocationOverviewComponent.jsx';
+import GatherResourceComponent from './GatherResourceComponent.jsx';
 
-let getComponent = () => {
-    return <LocationOverviewComponent />
-};
 
 let components = {
     [Constants.Overview]: <LocationOverviewComponent />,
-    [Constants.Forest]: <LocationComponent />
+    [Constants.Forest]: <GatherResourceComponent locationKey={Constants.Forest} />,
+    [Constants.Mountain]: <GatherResourceComponent locationKey={Constants.Mountain} />
 };
 
 export default class LocationRouterComponent extends React.Component {
@@ -28,7 +26,6 @@ export default class LocationRouterComponent extends React.Component {
     componentWillUnmount() {
         LocationStore.removeChangeListener(this._onChange());
     }
-
 
     render() {
         return (components[this.state.currentLocation]);

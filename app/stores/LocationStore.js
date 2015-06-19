@@ -4,14 +4,37 @@ import Dispatcher from '../Dispatcher.js';
 
 let ChangeEvent = Symbol();
 
+const Overview = Constants.Overview;
+const Forest = Constants.Forest;
+const Mountain = Constants.Mountain;
 
-let currentLocation = Constants.Overview;
+let locations = {
+    [Overview]: {
+        name: "Overview",
+        childLocations: [Forest, Mountain]
+    },
+    [Forest]: {
+        name: "Forest",
+        parentLocation: Overview
+    },
+    [Mountain]: {
+        name: "Mountain",
+        parentLocation: Overview
+    }
+};
+
+let currentLocation = Overview;
 
 class _LocationStore extends EventEmitter {
     getState() {
         return {
-            currentLocation: currentLocation
+            currentLocation: currentLocation,
+            location: locations[currentLocation],
         };
+    }
+
+    getLocation(locationKey) {
+        return locations[locationKey];
     }
 
     addChangeListener(callback) {
@@ -37,6 +60,10 @@ Dispatcher.register((payload) => {
     switch (payload.action) {
         case Constants.ChangeLocation:
             currentLocation = payload.newLocation;
+            break;
+        case Constants.LeaveLocation:
+            currentLocation = locations[payload.location].parentLocation;
+            console.log(currentLocation);
             break;
         default:
             validAction = false;

@@ -3,8 +3,8 @@ import PersonalBelongings from './PersonalBelongingsComponent.jsx';
 import ResourceOverview from './ResourceOverviewComponent.jsx';
 import Store from './StoreComponent.jsx';
 import Workers from './WorkerOverviewComponent.jsx';
-import Location from './LocationComponent.jsx';
-import LocationOverview from './LocationOverviewComponent.jsx';
+import Location from './GatherResourceComponent.jsx';
+import LocationOverview from './MainLocationOverviewComponent.jsx';
 import LocationRouter from './LocationRouterComponent.jsx';
 
 export default class AppComponent extends React.Component {

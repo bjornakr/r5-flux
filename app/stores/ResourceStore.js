@@ -26,6 +26,7 @@ class _ResourceStore extends EventEmitter {
         }
     }
 
+    // TODO: Rename, overshadows
     getState(resource) {
         let canBuyWorker = false;
         if (workers[resource]) {
