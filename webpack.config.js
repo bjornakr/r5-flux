@@ -7,7 +7,9 @@ module.exports = {
         './node_modules/underscore/underscore.js'
     ],
     output: {
-        filename: './build/bundle.js'
+        path: './build/',
+        filename: 'bundle.js',
+
     },
     module: {
         loaders: [
@@ -15,7 +17,16 @@ module.exports = {
                 test: /\.jsx?$/,
                 loader: 'babel',
                 include: path.resolve(__dirname, 'app/')
-            }
+            },
+            {
+                test: /\.css$/,
+                loader: 'style!css'
+            },
+            { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&minetype=application/font-woff" },
+            { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&minetype=application/font-woff" },
+            { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&minetype=application/octet-stream" },
+            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: "file" },
+            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&minetype=image/svg+xml" }
         ]
     },
     plugins: [

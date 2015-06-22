@@ -4,3 +4,7 @@ bundle.js
 # Ignore local webstorm config
 **/.idea/workspace.xml
 **/.idea/tasks.xml
+
+# Ignore build files
+**/build/*
+!**/build/index.html

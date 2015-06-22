@@ -1,5 +1,6 @@
 import {EventEmitter} from 'events';
 import Constants from '../constants/LocationConstants.js';
+import ResourceConstants from '../constants/ResourceConstants.js';
 import Dispatcher from '../Dispatcher.js';
 
 let ChangeEvent = Symbol();
@@ -15,11 +16,13 @@ let locations = {
     },
     [Forest]: {
         name: "Forest",
-        parentLocation: Overview
+        parentLocation: Overview,
+        resourceKey: ResourceConstants.Madera
     },
     [Mountain]: {
         name: "Mountain",
-        parentLocation: Overview
+        parentLocation: Overview,
+        resourceKey: ResourceConstants.Stone
     }
 };
 

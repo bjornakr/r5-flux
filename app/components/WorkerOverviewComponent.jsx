@@ -12,10 +12,14 @@ export default class WorkerOverviewComponent extends React.Component {
             <fieldset style={fieldSetStyle}>
                 <legend style={this.props.styles.legendStyle}>Workers</legend>
                 <table>
-                    <WorkerComponent resource={ResourceConstants.Madera} />
-                    <WorkerComponent resource={ResourceConstants.Stone} />
+                    <WorkerComponent resourceKey={ResourceConstants.Madera} />
+                    <WorkerComponent resourceKey={ResourceConstants.Stone} />
                 </table>
             </fieldset>
         );
     }
 }
+
+
+//<WorkerComponent resource={ResourceConstants.Madera} />
+//<WorkerComponent resource={ResourceConstants.Stone} />

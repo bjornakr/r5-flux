@@ -27,15 +27,16 @@ export default class AppComponent extends React.Component {
         };
         return (
             <div>
-                <PersonalBelongings styles = {styles} />
-                <ResourceOverview styles = {styles} />
+                <PersonalBelongings styles={styles}/>
+                <ResourceOverview styles={styles}/>
+                <Workers styles = {styles} />
+                <Store styles={styles}/>
                 <LocationRouter />
             </div>
         );
     }
 }
 //<div>
-//    <PersonalBelongings styles = {styles} />
 //    <ResourceOverview styles = {styles} />
 //    <Store styles = {styles} />
 //    <Workers styles = {styles} />

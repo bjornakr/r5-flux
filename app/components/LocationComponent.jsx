@@ -12,7 +12,7 @@ export default class LocationComponent extends React.Component {
 
     render() {
         return (
-            <button style={this.props.style} onClick={this._click}>{this.location.name}</button>
+            <button className={this.props.className} style={this.props.style} onClick={this._click}>{this.location.name}</button>
         );
     }
 

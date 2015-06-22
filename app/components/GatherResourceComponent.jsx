@@ -1,14 +1,31 @@
 import React from 'react';
-import Actions from '../actions/LocationActions.js';
+import LocationActions from '../actions/LocationActions.js';
+import ResourceActions from '../actions/ResourceActions.js';
+import ResourceNameAndCountComponent from './ResourceNameAndCountComponent.jsx';
 import LocationStore from '../stores/LocationStore.js';
+import ResourceStore from '../stores/ResourceStore.js';
+import ItemStore from '../stores/ItemStore.js';
 
 export default class GatherResourceComponent extends React.Component {
 
     constructor(props) {
         super(props);
         this.location = LocationStore.getLocation(this.props.locationKey);
+        this.resource = ResourceStore.getResource(this.location.resourceKey);
+        this.tool = ItemStore.getToolForResource(this.location.resourceKey);
         this._leave = this._leave.bind(this);
+        this._gather = this._gather.bind(this);
+        //this._onChange = this._onChange.bind(this);
     }
+
+    //componentDidMount() {
+    //    ResourceStore.addChangeListener(this._onChange);
+    //}
+    //
+    //componentWillUnmount() {
+    //    ResourceStore.removeChangeListener(this._onChange);
+    //}
+
 
     render() {
         let chopButtonStyle = {
@@ -22,16 +39,24 @@ export default class GatherResourceComponent extends React.Component {
         };
 
         return (
-            <fieldset style={{ textAlign: "center" }}>
+            <fieldset style={{ textAlign: "center", height: 200 }}>
                 <legend><h1>{this.location.name}</h1></legend>
-                <p><strong>Madera</strong> 3 587 789</p>
-                <p><button style={chopButtonStyle}>Chop!</button></p>
+                <ResourceNameAndCountComponent resourceKey={this.location.resourceKey}/>
+                <p><button onClick={this._gather} style={chopButtonStyle}>{this.resource.gatherVerb}!</button></p>
                 <p><button onClick={this._leave}>Leave</button></p>
             </fieldset>
         );
     }
 
     _leave() {
-        Actions.leaveLocation(this.props.locationKey);
+        LocationActions.leaveLocation(this.props.locationKey);
     };
+
+    _gather() {
+        ResourceActions.gatherResource(this.location.resourceKey, this.tool);
+    };
+
+    //_onChange() {
+    //
+    //};
 }

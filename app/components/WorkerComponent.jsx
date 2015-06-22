@@ -6,7 +6,7 @@ export default class WorkerComponent extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = ResourceStore.getState(this.props.resource);
+        this.state = ResourceStore.getStateForResource(this.props.resourceKey);
         this._onClick = this._onClick.bind(this);
 
         console.log(this.workerSymbols);

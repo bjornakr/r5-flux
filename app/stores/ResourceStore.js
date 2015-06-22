@@ -4,7 +4,7 @@ import Constants from './../constants/ResourceConstants.js';
 import ItemActions from './../actions/ItemActions.js';
 
 let resources = {
-    [Constants.Dinero]: {name: "Dinero", count: 40, sellPrice: 1},
+    [Constants.Dinero]: {name: "€", count: 40, sellPrice: 1},
     [Constants.Madera]: {name: "Madera", count: 0, sellPrice: 1, gatherVerb: 'Chop'},
     [Constants.Stone]: {name: "Stone", count: 0, sellPrice: 1.5, gatherVerb: 'Pick'}
 };
@@ -26,15 +26,14 @@ class _ResourceStore extends EventEmitter {
         }
     }
 
-    // TODO: Rename, overshadows
-    getState(resource) {
+    getStateForResource(resourceKey) {
         let canBuyWorker = false;
-        if (workers[resource]) {
-            canBuyWorker = resources[Constants.Dinero].count >= workers[resource].price;
+        if (workers[resourceKey]) {
+            canBuyWorker = resources[Constants.Dinero].count >= workers[resourceKey].price;
         }
         return {
-            resource: resources[resource],
-            workers: workers[resource],
+            resource: resources[resourceKey],
+            workers: workers[resourceKey],
             canBuyWorker: canBuyWorker
         }
     }
@@ -86,7 +85,7 @@ var produce = () => {
     }, 100);
 };
 
-produce();
+produce(); // TODO: BGRX
 
 var factor = (resourceCount) => {
     if (resourceCount < 1) {

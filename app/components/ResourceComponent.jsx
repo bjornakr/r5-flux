@@ -6,7 +6,7 @@ import Actions from './../actions/ResourceActions.js';
 export default class ResourceComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.resource = ResourceStore.getState(this.props.type).resource;
+        this.resource = ResourceStore.getResource(this.props.resourceKey);
         this._onChange = this._onChange.bind(this);
         this._sell = this._sell.bind(this);
         this._gather = this._gather.bind(this);
@@ -46,6 +46,6 @@ export default class ResourceComponent extends React.Component {
     }
 
     _onChange() {
-        this.setState(ResourceStore.getState()); // TODO: Remove?
+        this.setState(ResourceStore.getState());
     }
 }
