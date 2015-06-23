@@ -144,7 +144,6 @@ Dispatcher.register(function (payload) {
     switch (payload.action) {
         case Constants.AddResource:
             resources[payload.type].count += 1 * payload.tool.level;
-            console.log("STORE: Add resource (" + resources[payload.type] + ")");
             break;
         case Constants.SellResource:
             sellResource(payload.type);
@@ -155,7 +154,6 @@ Dispatcher.register(function (payload) {
             ItemActions.addItemToPersonalBelongings(payload.item);
             break;
         case Constants.HireWorker:
-            console.log("STORE: HIRE WORKER (" + payload.resource.toString() + ")");
             if (!hireWorker(payload.resource)) {
                 isValidAction = false;
             }

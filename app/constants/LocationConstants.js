@@ -3,5 +3,9 @@ export default {
     LeaveLocation: Symbol(),
     Overview: Symbol(),
     Forest: Symbol(),
-    Mountain: Symbol()
+    Mountain: Symbol(),
+    TownOverview: Symbol(),
+    Home: Symbol(),
+    Store: Symbol(),
+    Tavern: Symbol()
 };

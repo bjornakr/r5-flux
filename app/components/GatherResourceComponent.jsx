@@ -5,6 +5,7 @@ import ResourceNameAndCountComponent from './ResourceNameAndCountComponent.jsx';
 import LocationStore from '../stores/LocationStore.js';
 import ResourceStore from '../stores/ResourceStore.js';
 import ItemStore from '../stores/ItemStore.js';
+import LeaveBehavior from './location/LeaveBehavior.js';
 
 export default class GatherResourceComponent extends React.Component {
 
@@ -15,6 +16,7 @@ export default class GatherResourceComponent extends React.Component {
         this.tool = ItemStore.getToolForResource(this.location.resourceKey);
         this._leave = this._leave.bind(this);
         this._gather = this._gather.bind(this);
+        this.leaveBehavior = new LeaveBehavior(this.props.locationKey);
         //this._onChange = this._onChange.bind(this);
     }
 
@@ -43,7 +45,7 @@ export default class GatherResourceComponent extends React.Component {
                 <legend><h1>{this.location.name}</h1></legend>
                 <ResourceNameAndCountComponent resourceKey={this.location.resourceKey}/>
                 <p><button onClick={this._gather} style={chopButtonStyle}>{this.resource.gatherVerb}!</button></p>
-                <p><button onClick={this._leave}>Leave</button></p>
+                <p>{this.leaveBehavior.leaveButton}</p>
             </fieldset>
         );
     }

@@ -1,18 +1,23 @@
 import {EventEmitter} from 'events';
+import { Overview, TownOverview, Forest, Mountain, Home, Store, Tavern } from '../constants/LocationConstants.js';
 import Constants from '../constants/LocationConstants.js';
 import ResourceConstants from '../constants/ResourceConstants.js';
 import Dispatcher from '../Dispatcher.js';
 
 let ChangeEvent = Symbol();
 
-const Overview = Constants.Overview;
-const Forest = Constants.Forest;
-const Mountain = Constants.Mountain;
+//const Overview = Constants.Overview;
+//const Forest = Constants.Forest;
+//const Mountain = Constants.Mountain;
 
 let locations = {
     [Overview]: {
-        name: "Overview",
+        name: "Home",
         childLocations: [Forest, Mountain]
+    },
+    [TownOverview]: {
+        name: "Town",
+        childLocations: [Overview, Store, Tavern]
     },
     [Forest]: {
         name: "Forest",
@@ -23,6 +28,14 @@ let locations = {
         name: "Mountain",
         parentLocation: Overview,
         resourceKey: ResourceConstants.Stone
+    },
+    [Store]: {
+        name: "Store",
+        parentLocation: TownOverview
+    },
+    [Tavern]: {
+        name: "Tavern",
+        parentLocation: TownOverview
     }
 };
 
@@ -66,7 +79,6 @@ Dispatcher.register((payload) => {
             break;
         case Constants.LeaveLocation:
             currentLocation = locations[payload.location].parentLocation;
-            console.log(currentLocation);
             break;
         default:
             validAction = false;

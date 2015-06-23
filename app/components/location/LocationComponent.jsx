@@ -1,12 +1,13 @@
 import React from 'react';
-import Actions from '../actions/LocationActions.js';
-import LocationStore from '../stores/LocationStore.js';
+import Actions from '../../actions/LocationActions.js';
+import LocationStore from '../../stores/LocationStore.js';
 
 export default class LocationComponent extends React.Component {
 
     constructor(props) {
         super(props);
-        this.location = LocationStore.getLocation(this.props.location);
+        this.location = LocationStore.getLocation(this.props.locationKey);
+        console.log(this.location);
         this._click = this._click.bind(this);
     }
 
@@ -17,6 +18,6 @@ export default class LocationComponent extends React.Component {
     }
 
     _click() {
-        Actions.changeLocation(this.props.location);
+        Actions.changeLocation(this.props.locationKey);
     }
 } 

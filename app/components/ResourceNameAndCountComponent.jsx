@@ -7,9 +7,6 @@ export default class ResourceNameAndCountComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = ResourceStore.getResource(this.props.resourceKey);
-        console.log(this.props.resourceKey);
-        console.log(this.resource);
-
         this._onChange = this._onChange.bind(this);
     }
 

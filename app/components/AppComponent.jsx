@@ -4,8 +4,8 @@ import ResourceOverview from './ResourceOverviewComponent.jsx';
 import Store from './StoreComponent.jsx';
 import Workers from './WorkerOverviewComponent.jsx';
 import Location from './GatherResourceComponent.jsx';
-import LocationOverview from './MainLocationOverviewComponent.jsx';
-import LocationRouter from './LocationRouterComponent.jsx';
+import LocationOverview from './location/HomeOverviewComponent.jsx';
+import LocationRouter from './location/RouterComponent.jsx';
 
 export default class AppComponent extends React.Component {
 

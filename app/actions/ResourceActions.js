@@ -13,7 +13,6 @@ var sellResource = (type) => {
 export default {
 
     gatherResource: (type, tool) => {
-        console.log("ACTION: GATHER RESOURCE");
         Dispatcher.dispatch({ action: Constants.AddResource, type: type, tool: tool });
     },
 
@@ -30,12 +29,10 @@ export default {
     //},
 
     buyItem: (item) => {
-        console.log("ACTION: BUY ITEM");
         Dispatcher.dispatch({ action: Constants.BuyItem, item: item });
     },
 
     hireWorker: (resource) => {
-        console.log("ACTION: HIRE WORKER");
         Dispatcher.dispatch({ action: Constants.HireWorker, resource: resource })
     }
 }

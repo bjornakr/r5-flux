@@ -108,7 +108,7 @@
 
 
 	// module
-	exports.push([module.id, "/* ==========================================================================\n   IMPLEMENTATION\n   ========================================================================== */\n\nbody, button {\n    font-family: 'Comic Neue Angular', sans-serif;\n    font-weight: 300;\n    font-size: 1em;\n    line-height: 1.0;\n    /* Enable a font's kerning: http://stackoverflow.com/questions/15160897/font-feature-settings-what-is-the-correct-syntax */\n    font-feature-settings: \"kern\";\n    -moz-font-feature-settings: \"kern\";\n    -webkit-font-feature-settings: \"kern\";\n}\n\n\n/*\n\n \tfont-weight: 100; Comic Neue Light\n \tfont-weight: 300; Comic Neue Regular\n \tfont-weight: 700; Comic Neue Bold\n\tfont-style: oblique; for the oblique equivalents.\n\n  Change 'Comic Neue' to 'Comic Neue Angular' for the Angular variants\n  For example Comic Neue Angular Bold Oblique would be:\n\n \tbody {\n\t\tfont-family: 'Comic Neue Angular', sans-serif;\n\t\tfont-style: oblique;\n\t\tfont-weight: 700;\n    font-size: 1em;\n    line-height: 1.5;\n \t}\n\tor in shorthand: body { font: oblique 700 1em/1.5 'Comic Neue Angular', sans-serif; }\n\n*/\n\n/* ==========================================================================\n   FONT STACK\n   ========================================================================== */\n\n/*\t@font-face format credit to Chris Coyier http://css-tricks.com/snippets/css/using-font-face/ */\n/*\tAnd John, Kevin & Sven Read http://www.newnet-soft.com/blog/csstypography */\n/*\tAn old but still great article on @font-face performance http://www.stevesouders.com/blog/2009/10/13/font-face-and-performance/ */\n\n@font-face {\n    font-family: 'Comic Neue';\n    src: url(" + __webpack_require__(5) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 100;\n}\n\n@font-face {\n    font-family: 'Comic Neue';\n    src: url(" + __webpack_require__(6) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 100;\n    font-style: oblique;\n}\n\n@font-face {\n    font-family: 'Comic Neue';\n    src: url(" + __webpack_require__(7) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 300;\n}\n\n@font-face {\n    font-family: 'Comic Neue';\n    src: url(" + __webpack_require__(8) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 300;\n    font-style: oblique;\n}\n\n@font-face {\n    font-family: 'Comic Neue';\n    src: url(" + __webpack_require__(9) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 700;\n}\n\n@font-face {\n    font-family: 'Comic Neue';\n    src: url(" + __webpack_require__(10) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 700;\n    font-style: oblique;\n}\n\n@font-face {\n    font-family: 'Comic Neue Angular';\n    src: url(" + __webpack_require__(11) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 100;\n}\n\n@font-face {\n    font-family: 'Comic Neue Angular';\n    src: url(" + __webpack_require__(12) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 100;\n    font-style: oblique;\n}\n\n@font-face {\n    font-family: 'Comic Neue Angular';\n    src: url(" + __webpack_require__(13) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 300;\n}\n\n@font-face {\n    font-family: 'Comic Neue Angular';\n    src: url(" + __webpack_require__(14) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 300;\n    font-style: oblique;\n}\n\n@font-face {\n    font-family: 'Comic Neue Angular';\n    src: url(" + __webpack_require__(15) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 700;\n}\n\n@font-face {\n    font-family: 'Comic Neue Angular';\n    src: url(" + __webpack_require__(16) + ") format('woff2'); /* Even Moderner Browsers */\n    font-weight: 700;\n    font-style: oblique;\n}", ""]);
+	exports.push([module.id, "/* ==========================================================================\r\n   IMPLEMENTATION\r\n   ========================================================================== */\r\n\r\nhtml, body, button, input, select, textarea, .pure-g [class *= \"pure-u\"] {\r\n    font-family: 'Comic Neue Angular', sans-serif;\r\n    font-weight: 300;\r\n    font-size: 1em;\r\n    line-height: 1.0;\r\n    /* Enable a font's kerning: http://stackoverflow.com/questions/15160897/font-feature-settings-what-is-the-correct-syntax */\r\n    font-feature-settings: \"kern\";\r\n    -moz-font-feature-settings: \"kern\";\r\n    -webkit-font-feature-settings: \"kern\";\r\n}\r\n\r\n\r\n/*\r\n\r\n \tfont-weight: 100; Comic Neue Light\r\n \tfont-weight: 300; Comic Neue Regular\r\n \tfont-weight: 700; Comic Neue Bold\r\n\tfont-style: oblique; for the oblique equivalents.\r\n\r\n  Change 'Comic Neue' to 'Comic Neue Angular' for the Angular variants\r\n  For example Comic Neue Angular Bold Oblique would be:\r\n\r\n \tbody {\r\n\t\tfont-family: 'Comic Neue Angular', sans-serif;\r\n\t\tfont-style: oblique;\r\n\t\tfont-weight: 700;\r\n    font-size: 1em;\r\n    line-height: 1.5;\r\n \t}\r\n\tor in shorthand: body { font: oblique 700 1em/1.5 'Comic Neue Angular', sans-serif; }\r\n\r\n*/\r\n\r\n/* ==========================================================================\r\n   FONT STACK\r\n   ========================================================================== */\r\n\r\n/*\t@font-face format credit to Chris Coyier http://css-tricks.com/snippets/css/using-font-face/ */\r\n/*\tAnd John, Kevin & Sven Read http://www.newnet-soft.com/blog/csstypography */\r\n/*\tAn old but still great article on @font-face performance http://www.stevesouders.com/blog/2009/10/13/font-face-and-performance/ */\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue';\r\n    src: url(" + __webpack_require__(5) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 100;\r\n}\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue';\r\n    src: url(" + __webpack_require__(6) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 100;\r\n    font-style: oblique;\r\n}\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue';\r\n    src: url(" + __webpack_require__(7) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 300;\r\n}\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue';\r\n    src: url(" + __webpack_require__(8) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 300;\r\n    font-style: oblique;\r\n}\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue';\r\n    src: url(" + __webpack_require__(9) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 700;\r\n}\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue';\r\n    src: url(" + __webpack_require__(10) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 700;\r\n    font-style: oblique;\r\n}\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue Angular';\r\n    src: url(" + __webpack_require__(11) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 100;\r\n}\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue Angular';\r\n    src: url(" + __webpack_require__(12) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 100;\r\n    font-style: oblique;\r\n}\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue Angular';\r\n    src: url(" + __webpack_require__(13) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 300;\r\n}\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue Angular';\r\n    src: url(" + __webpack_require__(14) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 300;\r\n    font-style: oblique;\r\n}\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue Angular';\r\n    src: url(" + __webpack_require__(15) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 700;\r\n}\r\n\r\n@font-face {\r\n    font-family: 'Comic Neue Angular';\r\n    src: url(" + __webpack_require__(16) + ") format('woff2'); /* Even Moderner Browsers */\r\n    font-weight: 700;\r\n    font-style: oblique;\r\n}", ""]);
 
 	// exports
 
@@ -20883,13 +20883,13 @@
 
 	var _GatherResourceComponentJsx2 = _interopRequireDefault(_GatherResourceComponentJsx);
 
-	var _MainLocationOverviewComponentJsx = __webpack_require__(197);
+	var _locationHomeOverviewComponentJsx = __webpack_require__(210);
 
-	var _MainLocationOverviewComponentJsx2 = _interopRequireDefault(_MainLocationOverviewComponentJsx);
+	var _locationHomeOverviewComponentJsx2 = _interopRequireDefault(_locationHomeOverviewComponentJsx);
 
-	var _LocationRouterComponentJsx = __webpack_require__(199);
+	var _locationRouterComponentJsx = __webpack_require__(206);
 
-	var _LocationRouterComponentJsx2 = _interopRequireDefault(_LocationRouterComponentJsx);
+	var _locationRouterComponentJsx2 = _interopRequireDefault(_locationRouterComponentJsx);
 
 	var AppComponent = (function (_React$Component) {
 	    function AppComponent() {
@@ -20927,7 +20927,7 @@
 	                _react2['default'].createElement(_ResourceOverviewComponentJsx2['default'], { styles: styles }),
 	                _react2['default'].createElement(_WorkerOverviewComponentJsx2['default'], { styles: styles }),
 	                _react2['default'].createElement(_StoreComponentJsx2['default'], { styles: styles }),
-	                _react2['default'].createElement(_LocationRouterComponentJsx2['default'], null)
+	                _react2['default'].createElement(_locationRouterComponentJsx2['default'], null)
 	            );
 	        }
 	    }]);
@@ -21107,8 +21107,6 @@
 	        _get(Object.getPrototypeOf(WorkerComponent.prototype), 'constructor', this).call(this, props);
 	        this.state = _storesResourceStoreJs2['default'].getStateForResource(this.props.resourceKey);
 	        this._onClick = this._onClick.bind(this);
-
-	        console.log(this.workerSymbols);
 	        this._onChange = this._onChange.bind(this);
 	    }
 
@@ -21134,7 +21132,6 @@
 	                _this.workerSymbols += '♟';
 	            });
 
-	            console.log(this.state.canBuyWorker);
 	            return _react2['default'].createElement(
 	                'tr',
 	                null,
@@ -22792,7 +22789,6 @@
 	exports['default'] = {
 
 	    gatherResource: function gatherResource(type, tool) {
-	        console.log('ACTION: GATHER RESOURCE');
 	        _DispatcherJs2['default'].dispatch({ action: _constantsResourceConstantsJs2['default'].AddResource, type: type, tool: tool });
 	    },
 
@@ -22809,12 +22805,10 @@
 	    //},
 
 	    buyItem: function buyItem(item) {
-	        console.log('ACTION: BUY ITEM');
 	        _DispatcherJs2['default'].dispatch({ action: _constantsResourceConstantsJs2['default'].BuyItem, item: item });
 	    },
 
 	    hireWorker: function hireWorker(resource) {
-	        console.log('ACTION: HIRE WORKER');
 	        _DispatcherJs2['default'].dispatch({ action: _constantsResourceConstantsJs2['default'].HireWorker, resource: resource });
 	    }
 	};
@@ -23076,7 +23070,6 @@
 	    switch (payload.action) {
 	        case _constantsResourceConstantsJs2['default'].AddResource:
 	            resources[payload.type].count += 1 * payload.tool.level;
-	            console.log('STORE: Add resource (' + resources[payload.type] + ')');
 	            break;
 	        case _constantsResourceConstantsJs2['default'].SellResource:
 	            sellResource(payload.type);
@@ -23087,7 +23080,6 @@
 	            _actionsItemActionsJs2['default'].addItemToPersonalBelongings(payload.item);
 	            break;
 	        case _constantsResourceConstantsJs2['default'].HireWorker:
-	            console.log('STORE: HIRE WORKER (' + payload.resource.toString() + ')');
 	            if (!hireWorker(payload.resource)) {
 	                isValidAction = false;
 	            } else {
@@ -23650,7 +23642,6 @@
 
 	    switch (payload.action) {
 	        case _constantsItemConstantsJs2['default'].AddItemToPersonalBelongings:
-	            console.log('Bought ' + payload.item.name);
 	            personalBelongings.push(payload.item);
 	            break;
 	        default:
@@ -23659,7 +23650,6 @@
 	    }
 
 	    if (isValidAction) {
-	        console.log('ONCE');
 	        ItemStore.emitChange();
 	    }
 	});
@@ -23820,9 +23810,6 @@
 
 	        _get(Object.getPrototypeOf(ResourceNameAndCountComponent.prototype), 'constructor', this).call(this, props);
 	        this.state = _storesResourceStoreJs2['default'].getResource(this.props.resourceKey);
-	        console.log(this.props.resourceKey);
-	        console.log(this.resource);
-
 	        this._onChange = this._onChange.bind(this);
 	    }
 
@@ -24119,6 +24106,10 @@
 
 	var _storesItemStoreJs2 = _interopRequireDefault(_storesItemStoreJs);
 
+	var _locationLeaveBehaviorJs = __webpack_require__(212);
+
+	var _locationLeaveBehaviorJs2 = _interopRequireDefault(_locationLeaveBehaviorJs);
+
 	var GatherResourceComponent = (function (_React$Component) {
 	    function GatherResourceComponent(props) {
 	        _classCallCheck(this, GatherResourceComponent);
@@ -24129,6 +24120,7 @@
 	        this.tool = _storesItemStoreJs2['default'].getToolForResource(this.location.resourceKey);
 	        this._leave = this._leave.bind(this);
 	        this._gather = this._gather.bind(this);
+	        this.leaveBehavior = new _locationLeaveBehaviorJs2['default'](this.props.locationKey);
 	        //this._onChange = this._onChange.bind(this);
 	    }
 
@@ -24182,11 +24174,7 @@
 	                _react2['default'].createElement(
 	                    'p',
 	                    null,
-	                    _react2['default'].createElement(
-	                        'button',
-	                        { onClick: this._leave },
-	                        'Leave'
-	                    )
+	                    this.leaveBehavior.leaveButton
 	                )
 	            );
 	        }
@@ -24256,7 +24244,11 @@
 	    LeaveLocation: Symbol(),
 	    Overview: Symbol(),
 	    Forest: Symbol(),
-	    Mountain: Symbol()
+	    Mountain: Symbol(),
+	    TownOverview: Symbol(),
+	    Home: Symbol(),
+	    Store: Symbol(),
+	    Tavern: Symbol()
 	};
 	module.exports = exports["default"];
 
@@ -24298,24 +24290,33 @@
 
 	var ChangeEvent = Symbol();
 
-	var Overview = _constantsLocationConstantsJs2['default'].Overview;
-	var Forest = _constantsLocationConstantsJs2['default'].Forest;
-	var Mountain = _constantsLocationConstantsJs2['default'].Mountain;
+	//const Overview = Constants.Overview;
+	//const Forest = Constants.Forest;
+	//const Mountain = Constants.Mountain;
 
-	var locations = (_locations = {}, _defineProperty(_locations, Overview, {
-	    name: 'Overview',
-	    childLocations: [Forest, Mountain]
-	}), _defineProperty(_locations, Forest, {
+	var locations = (_locations = {}, _defineProperty(_locations, _constantsLocationConstantsJs.Overview, {
+	    name: 'Home',
+	    childLocations: [_constantsLocationConstantsJs.Forest, _constantsLocationConstantsJs.Mountain]
+	}), _defineProperty(_locations, _constantsLocationConstantsJs.TownOverview, {
+	    name: 'Town',
+	    childLocations: [_constantsLocationConstantsJs.Overview, _constantsLocationConstantsJs.Store, _constantsLocationConstantsJs.Tavern]
+	}), _defineProperty(_locations, _constantsLocationConstantsJs.Forest, {
 	    name: 'Forest',
-	    parentLocation: Overview,
+	    parentLocation: _constantsLocationConstantsJs.Overview,
 	    resourceKey: _constantsResourceConstantsJs2['default'].Madera
-	}), _defineProperty(_locations, Mountain, {
+	}), _defineProperty(_locations, _constantsLocationConstantsJs.Mountain, {
 	    name: 'Mountain',
-	    parentLocation: Overview,
+	    parentLocation: _constantsLocationConstantsJs.Overview,
 	    resourceKey: _constantsResourceConstantsJs2['default'].Stone
+	}), _defineProperty(_locations, _constantsLocationConstantsJs.Store, {
+	    name: 'Store',
+	    parentLocation: _constantsLocationConstantsJs.TownOverview
+	}), _defineProperty(_locations, _constantsLocationConstantsJs.Tavern, {
+	    name: 'Tavern',
+	    parentLocation: _constantsLocationConstantsJs.TownOverview
 	}), _locations);
 
-	var currentLocation = Overview;
+	var currentLocation = _constantsLocationConstantsJs.Overview;
 
 	var _LocationStore = (function (_EventEmitter) {
 	    function _LocationStore() {
@@ -24372,7 +24373,6 @@
 	            break;
 	        case _constantsLocationConstantsJs2['default'].LeaveLocation:
 	            currentLocation = locations[payload.location].parentLocation;
-	            console.log(currentLocation);
 	            break;
 	        default:
 	            validAction = false;
@@ -24385,104 +24385,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 197 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	var _objectAssign = __webpack_require__(176);
-
-	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
-	var _react = __webpack_require__(18);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _actionsLocationActionsJs = __webpack_require__(194);
-
-	var _actionsLocationActionsJs2 = _interopRequireDefault(_actionsLocationActionsJs);
-
-	var _constantsLocationConstantsJs = __webpack_require__(195);
-
-	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
-
-	var _LocationComponentJsx = __webpack_require__(198);
-
-	var _LocationComponentJsx2 = _interopRequireDefault(_LocationComponentJsx);
-
-	var MainLocationOverviewComponent = (function (_React$Component) {
-	    function MainLocationOverviewComponent() {
-	        _classCallCheck(this, MainLocationOverviewComponent);
-
-	        if (_React$Component != null) {
-	            _React$Component.apply(this, arguments);
-	        }
-	    }
-
-	    _inherits(MainLocationOverviewComponent, _React$Component);
-
-	    _createClass(MainLocationOverviewComponent, [{
-	        key: 'render',
-	        value: function render() {
-	            var buttonStyle = {
-	                minHeight: 150,
-	                minWidth: 150,
-	                borderRadius: 10,
-	                color: '#FFFFFF',
-	                textShadow: '1px 1px 3px #333333',
-	                fontSize: 30
-	            };
-
-	            var forestStyle = (0, _objectAssign2['default'])({}, buttonStyle);
-	            var mountainStyle = (0, _objectAssign2['default'])({}, buttonStyle);
-	            var townStyle = (0, _objectAssign2['default'])({}, buttonStyle);
-	            //forestStyle["background"] = "#333300";
-	            //mountainStyle["background"] = "#999966";
-	            //townStyle["background"] = "#CC9900";
-
-	            return _react2['default'].createElement(
-	                'fieldset',
-	                { style: { textAlign: 'center' } },
-	                _react2['default'].createElement(
-	                    'legend',
-	                    null,
-	                    _react2['default'].createElement(
-	                        'h1',
-	                        null,
-	                        'Overview'
-	                    )
-	                ),
-	                _react2['default'].createElement(_LocationComponentJsx2['default'], { className: 'bg-green', style: forestStyle, location: _constantsLocationConstantsJs2['default'].Forest }),
-	                _react2['default'].createElement(_LocationComponentJsx2['default'], { className: 'bg-teal', style: mountainStyle, location: _constantsLocationConstantsJs2['default'].Mountain }),
-	                _react2['default'].createElement(
-	                    'button',
-	                    { className: 'bg-orange', style: townStyle },
-	                    'Town'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return MainLocationOverviewComponent;
-	})(_react2['default'].Component);
-
-	exports['default'] = MainLocationOverviewComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 198 */
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24518,7 +24427,8 @@
 	        _classCallCheck(this, LocationComponent);
 
 	        _get(Object.getPrototypeOf(LocationComponent.prototype), 'constructor', this).call(this, props);
-	        this.location = _storesLocationStoreJs2['default'].getLocation(this.props.location);
+	        this.location = _storesLocationStoreJs2['default'].getLocation(this.props.locationKey);
+	        console.log(this.location);
 	        this._click = this._click.bind(this);
 	    }
 
@@ -24536,7 +24446,7 @@
 	    }, {
 	        key: '_click',
 	        value: function _click() {
-	            _actionsLocationActionsJs2['default'].changeLocation(this.props.location);
+	            _actionsLocationActionsJs2['default'].changeLocation(this.props.locationKey);
 	        }
 	    }]);
 
@@ -24547,7 +24457,9 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 199 */
+/* 204 */,
+/* 205 */,
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24582,15 +24494,23 @@
 
 	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
 
-	var _MainLocationOverviewComponentJsx = __webpack_require__(197);
+	var _HomeOverviewComponentJsx = __webpack_require__(210);
 
-	var _MainLocationOverviewComponentJsx2 = _interopRequireDefault(_MainLocationOverviewComponentJsx);
+	var _HomeOverviewComponentJsx2 = _interopRequireDefault(_HomeOverviewComponentJsx);
+
+	var _TownOverviewComponentJsx = __webpack_require__(209);
+
+	var _TownOverviewComponentJsx2 = _interopRequireDefault(_TownOverviewComponentJsx);
 
 	var _GatherResourceComponentJsx = __webpack_require__(193);
 
 	var _GatherResourceComponentJsx2 = _interopRequireDefault(_GatherResourceComponentJsx);
 
-	var components = (_components = {}, _defineProperty(_components, _constantsLocationConstantsJs2['default'].Overview, _react2['default'].createElement(_MainLocationOverviewComponentJsx2['default'], null)), _defineProperty(_components, _constantsLocationConstantsJs2['default'].Forest, _react2['default'].createElement(_GatherResourceComponentJsx2['default'], { locationKey: _constantsLocationConstantsJs2['default'].Forest })), _defineProperty(_components, _constantsLocationConstantsJs2['default'].Mountain, _react2['default'].createElement(_GatherResourceComponentJsx2['default'], { locationKey: _constantsLocationConstantsJs2['default'].Mountain })), _components);
+	var _StoreJsx = __webpack_require__(211);
+
+	var _StoreJsx2 = _interopRequireDefault(_StoreJsx);
+
+	var components = (_components = {}, _defineProperty(_components, _constantsLocationConstantsJs2['default'].Overview, _react2['default'].createElement(_HomeOverviewComponentJsx2['default'], null)), _defineProperty(_components, _constantsLocationConstantsJs2['default'].Forest, _react2['default'].createElement(_GatherResourceComponentJsx2['default'], { locationKey: _constantsLocationConstantsJs2['default'].Forest })), _defineProperty(_components, _constantsLocationConstantsJs2['default'].Mountain, _react2['default'].createElement(_GatherResourceComponentJsx2['default'], { locationKey: _constantsLocationConstantsJs2['default'].Mountain })), _defineProperty(_components, _constantsLocationConstantsJs2['default'].TownOverview, _react2['default'].createElement(_TownOverviewComponentJsx2['default'], null)), _defineProperty(_components, _constantsLocationConstantsJs2['default'].Store, _react2['default'].createElement(_StoreJsx2['default'], { locationKey: _constantsLocationConstantsJs2['default'].Store })), _components);
 
 	var LocationRouterComponent = (function (_React$Component) {
 	    function LocationRouterComponent() {
@@ -24629,6 +24549,367 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = LocationRouterComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 207 */,
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(18);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var LocationOverviewBaseComponent = (function (_React$Component) {
+	    function LocationOverviewBaseComponent() {
+	        _classCallCheck(this, LocationOverviewBaseComponent);
+
+	        if (_React$Component != null) {
+	            _React$Component.apply(this, arguments);
+	        }
+	    }
+
+	    _inherits(LocationOverviewBaseComponent, _React$Component);
+
+	    _createClass(LocationOverviewBaseComponent, [{
+	        key: "getButtonStyle",
+	        value: function getButtonStyle() {
+	            return {
+	                minHeight: 150,
+	                minWidth: 150,
+	                borderRadius: 10,
+	                color: "#FFFFFF",
+	                textShadow: "1px 1px 3px #333333",
+	                fontSize: 30
+	            };
+	        }
+	    }]);
+
+	    return LocationOverviewBaseComponent;
+	})(_react2["default"].Component);
+
+	exports["default"] = LocationOverviewBaseComponent;
+	module.exports = exports["default"];
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(18);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _constantsLocationConstantsJs = __webpack_require__(195);
+
+	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
+
+	var _OverviewBaseComponentJsx = __webpack_require__(208);
+
+	var _OverviewBaseComponentJsx2 = _interopRequireDefault(_OverviewBaseComponentJsx);
+
+	var _LocationComponentJsx = __webpack_require__(203);
+
+	var _LocationComponentJsx2 = _interopRequireDefault(_LocationComponentJsx);
+
+	var TownLocationOverviewComponent = (function (_LocationOverviewBaseComponent) {
+	    function TownLocationOverviewComponent() {
+	        _classCallCheck(this, TownLocationOverviewComponent);
+
+	        if (_LocationOverviewBaseComponent != null) {
+	            _LocationOverviewBaseComponent.apply(this, arguments);
+	        }
+	    }
+
+	    _inherits(TownLocationOverviewComponent, _LocationOverviewBaseComponent);
+
+	    _createClass(TownLocationOverviewComponent, [{
+	        key: 'render',
+	        value: function render() {
+	            var buttonStyle = this.getButtonStyle();
+	            return _react2['default'].createElement(
+	                'fieldset',
+	                { style: { textAlign: 'center' } },
+	                _react2['default'].createElement(
+	                    'legend',
+	                    null,
+	                    _react2['default'].createElement(
+	                        'h1',
+	                        null,
+	                        'Town'
+	                    )
+	                ),
+	                _react2['default'].createElement(_LocationComponentJsx2['default'], { className: 'bg-blue', style: buttonStyle, locationKey: _constantsLocationConstantsJs.Overview }),
+	                _react2['default'].createElement(_LocationComponentJsx2['default'], { className: 'bg-navy', style: buttonStyle, locationKey: _constantsLocationConstantsJs.Store }),
+	                _react2['default'].createElement(_LocationComponentJsx2['default'], { className: 'bg-orange', style: buttonStyle, locationKey: _constantsLocationConstantsJs.Tavern })
+	            );
+	        }
+	    }]);
+
+	    return TownLocationOverviewComponent;
+	})(_OverviewBaseComponentJsx2['default']);
+
+	exports['default'] = TownLocationOverviewComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _objectAssign = __webpack_require__(176);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	var _react = __webpack_require__(18);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _actionsLocationActionsJs = __webpack_require__(194);
+
+	var _actionsLocationActionsJs2 = _interopRequireDefault(_actionsLocationActionsJs);
+
+	var _constantsLocationConstantsJs = __webpack_require__(195);
+
+	var _constantsLocationConstantsJs2 = _interopRequireDefault(_constantsLocationConstantsJs);
+
+	var _OverviewBaseComponentJsx = __webpack_require__(208);
+
+	var _OverviewBaseComponentJsx2 = _interopRequireDefault(_OverviewBaseComponentJsx);
+
+	var _LocationComponentJsx = __webpack_require__(203);
+
+	var _LocationComponentJsx2 = _interopRequireDefault(_LocationComponentJsx);
+
+	var MainLocationOverviewComponent = (function (_LocationOverviewBaseComponent) {
+	    function MainLocationOverviewComponent() {
+	        _classCallCheck(this, MainLocationOverviewComponent);
+
+	        if (_LocationOverviewBaseComponent != null) {
+	            _LocationOverviewBaseComponent.apply(this, arguments);
+	        }
+	    }
+
+	    _inherits(MainLocationOverviewComponent, _LocationOverviewBaseComponent);
+
+	    _createClass(MainLocationOverviewComponent, [{
+	        key: 'render',
+	        value: function render() {
+	            var buttonStyle = this.getButtonStyle();
+	            var forestStyle = (0, _objectAssign2['default'])({}, buttonStyle);
+	            var mountainStyle = (0, _objectAssign2['default'])({}, buttonStyle);
+	            var townStyle = (0, _objectAssign2['default'])({}, buttonStyle);
+	            //forestStyle["background"] = "#333300";
+	            //mountainStyle["background"] = "#999966";
+	            //townStyle["background"] = "#CC9900";
+
+	            return _react2['default'].createElement(
+	                'fieldset',
+	                { style: { textAlign: 'center' } },
+	                _react2['default'].createElement(
+	                    'legend',
+	                    null,
+	                    _react2['default'].createElement(
+	                        'h1',
+	                        null,
+	                        'Overview'
+	                    )
+	                ),
+	                _react2['default'].createElement(_LocationComponentJsx2['default'], { className: 'bg-green', style: forestStyle, locationKey: _constantsLocationConstantsJs2['default'].Forest }),
+	                _react2['default'].createElement(_LocationComponentJsx2['default'], { className: 'bg-teal', style: mountainStyle, locationKey: _constantsLocationConstantsJs2['default'].Mountain }),
+	                _react2['default'].createElement(_LocationComponentJsx2['default'], { className: 'bg-maroon', style: townStyle, locationKey: _constantsLocationConstantsJs2['default'].TownOverview })
+	            );
+	        }
+	    }]);
+
+	    return MainLocationOverviewComponent;
+	})(_OverviewBaseComponentJsx2['default']);
+
+	exports['default'] = MainLocationOverviewComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _objectAssign = __webpack_require__(176);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	var _react = __webpack_require__(18);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _StoreItemComponentJsx = __webpack_require__(192);
+
+	var _StoreItemComponentJsx2 = _interopRequireDefault(_StoreItemComponentJsx);
+
+	var _storesItemStoreJs = __webpack_require__(187);
+
+	var _storesItemStoreJs2 = _interopRequireDefault(_storesItemStoreJs);
+
+	var _LeaveBehaviorJs = __webpack_require__(212);
+
+	var _LeaveBehaviorJs2 = _interopRequireDefault(_LeaveBehaviorJs);
+
+	var Store = (function (_React$Component) {
+	    function Store(props) {
+	        _classCallCheck(this, Store);
+
+	        _get(Object.getPrototypeOf(Store.prototype), 'constructor', this).call(this, props);
+	        console.log(props.locationKey);
+	        this.leaveBehavior = new _LeaveBehaviorJs2['default'](props.locationKey);
+	    }
+
+	    _inherits(Store, _React$Component);
+
+	    _createClass(Store, [{
+	        key: 'render',
+	        value: function render() {
+	            var items = _storesItemStoreJs2['default'].getStoreItems();
+	            var itemComponents = items.map(function (i, index) {
+	                return _react2['default'].createElement(_StoreItemComponentJsx2['default'], { key: index, item: i });
+	            });
+
+	            //let fieldSetStyle = {}; // {background: "#DDECDA"};
+	            //assign(fieldSetStyle, this.props.styles.fieldSetStyle);
+
+	            return _react2['default'].createElement(
+	                'fieldset',
+	                null,
+	                _react2['default'].createElement(
+	                    'legend',
+	                    null,
+	                    'Boutique'
+	                ),
+	                _react2['default'].createElement(
+	                    'table',
+	                    null,
+	                    itemComponents
+	                ),
+	                _react2['default'].createElement(
+	                    'p',
+	                    null,
+	                    this.leaveBehavior.leaveButton
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Store;
+	})(_react2['default'].Component);
+
+	exports['default'] = Store;
+	module.exports = exports['default'];
+
+/***/ },
+/* 212 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var _react = __webpack_require__(18);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _actionsLocationActionsJs = __webpack_require__(194);
+
+	var _actionsLocationActionsJs2 = _interopRequireDefault(_actionsLocationActionsJs);
+
+	var LeaveBehavior = (function () {
+	    function LeaveBehavior(locationKey) {
+	        _classCallCheck(this, LeaveBehavior);
+
+	        this.locationKey = locationKey;
+	        this.leave = this.leave.bind(this);
+	    }
+
+	    _createClass(LeaveBehavior, [{
+	        key: 'leave',
+	        value: function leave() {
+	            _actionsLocationActionsJs2['default'].leaveLocation(this.locationKey);
+	        }
+	    }, {
+	        key: 'leaveButton',
+	        get: function () {
+	            return _react2['default'].createElement(
+	                'button',
+	                { onClick: this.leave },
+	                'Leave'
+	            );
+	        }
+	    }]);
+
+	    return LeaveBehavior;
+	})();
+
+	exports['default'] = LeaveBehavior;
 	module.exports = exports['default'];
 
 /***/ }

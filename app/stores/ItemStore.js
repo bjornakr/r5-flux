@@ -54,7 +54,6 @@ Dispatcher.register(function (payload) {
 
     switch (payload.action) {
         case (Constants.AddItemToPersonalBelongings):
-            console.log("Bought " + payload.item.name);
             personalBelongings.push(payload.item);
             break;
         default:
@@ -63,7 +62,6 @@ Dispatcher.register(function (payload) {
     }
 
     if (isValidAction) {
-        console.log("ONCE");
         ItemStore.emitChange();
     }
 });

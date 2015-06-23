@@ -8,8 +8,6 @@ export default class WorkerComponent extends React.Component {
         super(props);
         this.state = ResourceStore.getStateForResource(this.props.resourceKey);
         this._onClick = this._onClick.bind(this);
-
-        console.log(this.workerSymbols);
         this._onChange = this._onChange.bind(this);
     }
 
@@ -27,7 +25,6 @@ export default class WorkerComponent extends React.Component {
             this.workerSymbols += "♟";
         });
 
-        console.log(this.state.canBuyWorker);
         return (
             <tr>
                 <td>{this.state.workers.name}</td>

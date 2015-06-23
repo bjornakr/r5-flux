@@ -2,7 +2,7 @@
    IMPLEMENTATION
    ========================================================================== */
 
-body, button {
+html, body, button, input, select, textarea, .pure-g [class *= "pure-u"] {
     font-family: 'Comic Neue Angular', sans-serif;
     font-weight: 300;
     font-size: 1em;
